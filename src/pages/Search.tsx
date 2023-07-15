@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Dog } from '../services/api';
-import Container from '@mui/material/Container';
-import PaginationBar from '../components/PaginationBar';
-import FilterSection from '../components/Filter/FilterSection';
-import { FavoritesContext } from '../context/FavoritesContext';
 import { isAxiosError } from 'axios';
+import { Dog } from '../services/api';
 import { fetchDogs } from '../services/dogApi';
-import DogCardsSection from '../components/ResultsSection/DogCardsSection';
-import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
-import SearchBar from '../components/Filter/SearchBarSection';
+
+import { FavoritesContext } from '../context/FavoritesContext';
 import { useZipCodes } from '../context/ZipCodesContext';
+
+import Container from '@mui/material/Container';
+import SearchBarSection from '../components/Filter/SearchBarSection';
+import FilterSection from '../components/Filter/FilterSection';
+import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
+import DogCardsSection from '../components/ResultsSection/DogCardsSection';
+import PaginationBar from '../components/PaginationBar';
 
 const Search: React.FC = () => {
   const { favorites, showFavorite, setShowFavorite } =
@@ -22,6 +24,7 @@ const Search: React.FC = () => {
   const [asc, setAsc] = useState<boolean>(true);
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
     'American Staffordshire Terrier',
+    'Yorkshire Terrier',
   ]);
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const [totalResults, setTotalResults] = useState<number>(0);
@@ -87,11 +90,11 @@ const Search: React.FC = () => {
   return (
     <div
       id="search-page-container"
-      className=" px-32 lg:max-w-screen flex flex-row"
+      className=" xl:px-32 lg:px-6 md:px-4 sm:px-2 lg:max-w-screen flex flex-row"
     >
       {/* Search Section */}
-      <div className=" sm:px-0 md:px-2 lg:px-4 lg:max-w-md md:max-w-sm sm:max-w-xs">
-        <SearchBar />
+      <div className=" sm:px-0 md:px-2 lg:px-4 xl:max-w-[23rem] lg:max-w-[18rem] md:max-w-[14rem] xs:max-w-[10rem] xl:min-w-[22rem]">
+        <SearchBarSection />
         <FilterSection
           asc={asc}
           showComboBox={showFilter}
