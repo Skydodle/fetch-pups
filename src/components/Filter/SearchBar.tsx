@@ -1,41 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { Box, Button } from '@mui/material';
 import { useZipCodes } from '../../context/ZipCodesContext';
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.black, 0.05),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.black, 0.1),
-  },
-  width: '100%',
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  right: 0,
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: theme.spacing(2),
-    transition: theme.transitions.create('width'),
-    width: '100%',
-  },
-}));
 
 const SearchBar: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
@@ -58,50 +25,35 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <Box>
-      <Search>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '100%',
-          }}
-        >
-          <StyledInputBase
-            placeholder='Enter a zip code...'
-            inputProps={{ 'aria-label': 'search' }}
+    <div className="flex flex-col">
+      <div className="relative bg-gray-100 hover:bg-custom-blue rounded-md p-0.5">
+        <div className="flex justify-between w-full">
+          <input
+            className="pl-5 pr-10 py-1  bg-gray-100 rounded-md w-full focus:outline-none"
+            placeholder="Enter a zip code(s)..."
+            aria-label="search"
             value={inputValue}
             onChange={handleInputChange}
           />
-          <SearchIconWrapper>
-            <IconButton
-              onClick={() => {}}
-              style={{ position: 'absolute', right: '0' }}
-            >
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2">
+            <IconButton style={{ position: 'absolute', right: '0' }}>
               <SearchIcon />
             </IconButton>
-          </SearchIconWrapper>
+          </div>
         </div>
-      </Search>
-      <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 1,
-          mt: 1,
-        }}
-      >
+      </div>
+      <div className="flex flex-wrap gap-2 mt-2">
         {zipCodes.map((zipCode) => (
-          <Button
-            variant='outlined'
+          <button
+            className="border border-custom-blue text-custom-blue rounded-md px-2 py-1"
             key={zipCode}
             onClick={() => handleZipCodeClick(zipCode)}
           >
             {zipCode}
-          </Button>
+          </button>
         ))}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 
