@@ -90,7 +90,7 @@ const Search: React.FC = () => {
       className=" px-5 lg:max-w-screen flex flex-row"
     >
       {/* Search Section */}
-      <div className=" px-4 lg:max-w-md">
+      <div className=" sm:px-0 md:px-2 lg:px-4 lg:max-w-md md:max-w-sm sm:max-w-xs">
         <SearchBar />
         <FilterSection
           asc={asc}
@@ -107,7 +107,7 @@ const Search: React.FC = () => {
       </div>
       {/* End Search Section */}
       {/* Results Section */}
-      <Container disableGutters maxWidth="lg" sx={{ py: 1, px: 1, my: 5 }}>
+      <Container disableGutters maxWidth="lg" sx={{ p: 1, my: 5 }}>
         <ResultsToolbar
           favoritesCount={favoritesCount}
           showFavorite={showFavorite}
