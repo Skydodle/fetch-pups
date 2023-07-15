@@ -23,22 +23,17 @@ const MainLayout: React.FC = () => {
     <ThemeProvider theme={theme}>
       <FavoritesProvider>
         <ZipCodesProvider>
-          <NavBar />
-          <Container
-            disableGutters
-            maxWidth={false}
-            sx={{
-              bgcolor: theme.palette.background.default,
-              minHeight: '100%',
-            }}
-          >
+          <header>
+            <NavBar />
+          </header>
+          <main className="flex flex-col bg-off-white font-lexend px-0">
             <Routes>
-              <Route path='/about' element={<About />} />
-              <Route path='/search' element={<Search />} />
-              <Route path='/match' element={<Match />} />
-              <Route path='/tips' element={<DogCareTips />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/match" element={<Match />} />
+              <Route path="/tips" element={<DogCareTips />} />
             </Routes>
-          </Container>
+          </main>
         </ZipCodesProvider>
       </FavoritesProvider>
     </ThemeProvider>

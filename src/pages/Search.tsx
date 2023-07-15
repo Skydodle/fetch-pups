@@ -40,7 +40,7 @@ const Search: React.FC = () => {
         page,
         selectedBreeds,
         ageRange as number[],
-        zipCodes
+        zipCodes,
       );
       setDogs(dogs);
       setTotalResults(totalResults);
@@ -50,7 +50,7 @@ const Search: React.FC = () => {
         setError('An error occurred while fetching dogs, please try again');
       } else if (isAxiosError(err) && err.request) {
         setError(
-          'A network error occurred, please check your internet connection'
+          'A network error occurred, please check your internet connection',
         );
       } else {
         setError('An unexpected error occurred');
@@ -84,64 +84,62 @@ const Search: React.FC = () => {
 
   return (
     <>
-      <main>
+      <Container
+        maxWidth="lg"
+        disableGutters
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        {/* Search Section */}
         <Container
-          maxWidth='lg'
           disableGutters
+          maxWidth={false}
           sx={{
-            display: 'flex',
-            flexDirection: 'row',
+            maxWidth: { xs: '80%', lg: '18rem' },
+            mr: { xs: 0, lg: 2 },
           }}
         >
-          {/* Search Section */}
-          <Container
-            disableGutters
-            maxWidth={false}
-            sx={{
-              maxWidth: { xs: '80%', lg: '18rem' },
-              mr: { xs: 0, lg: 2 },
-            }}
-          >
-            <SearchBar />
-            <FilterSection
-              asc={asc}
-              showComboBox={showFilter}
-              handleSort={toggleSortOrder}
-              toggleShowFilter={toggleShowFilter}
-              selectedBreeds={selectedBreeds}
-              setSelectedBreeds={setSelectedBreeds}
-              ageRange={ageRange}
-              handleAgeRangeSlider={handleAgeRangeSlider}
-              ageMin={ageMin}
-              ageMax={ageMax}
-            />
-          </Container>
-          {/* End Search Section */}
-          {/* Results Section */}
-          <Container disableGutters maxWidth='lg' sx={{ py: 1, px: 1, my: 5 }}>
-            <ResultsToolbar
-              favoritesCount={favoritesCount}
-              showFavorite={showFavorite}
-              toggleShowFavorites={toggleShowFavorites}
-              totalResults={totalResults}
-            />
-            {error && <p>{error}</p>}
-            {/* Dog Cards Section */}
-            <DogCardsSection
-              dogs={dogs}
-              showFavorite={showFavorite}
-              favorites={favorites}
-            />
-            {/*End Dog Cards Section*/}
-            <PaginationBar
-              totalResults={totalResults}
-              page={page}
-              setPage={setPage}
-            />
-          </Container>
-          {/* End Results Section */}
+          <SearchBar />
+          <FilterSection
+            asc={asc}
+            showComboBox={showFilter}
+            handleSort={toggleSortOrder}
+            toggleShowFilter={toggleShowFilter}
+            selectedBreeds={selectedBreeds}
+            setSelectedBreeds={setSelectedBreeds}
+            ageRange={ageRange}
+            handleAgeRangeSlider={handleAgeRangeSlider}
+            ageMin={ageMin}
+            ageMax={ageMax}
+          />
         </Container>
-      </main>
+        {/* End Search Section */}
+        {/* Results Section */}
+        <Container disableGutters maxWidth="lg" sx={{ py: 1, px: 1, my: 5 }}>
+          <ResultsToolbar
+            favoritesCount={favoritesCount}
+            showFavorite={showFavorite}
+            toggleShowFavorites={toggleShowFavorites}
+            totalResults={totalResults}
+          />
+          {error && <p>{error}</p>}
+          {/* Dog Cards Section */}
+          <DogCardsSection
+            dogs={dogs}
+            showFavorite={showFavorite}
+            favorites={favorites}
+          />
+          {/*End Dog Cards Section*/}
+          <PaginationBar
+            totalResults={totalResults}
+            page={page}
+            setPage={setPage}
+          />
+        </Container>
+        {/* End Results Section */}
+      </Container>
     </>
   );
 };
