@@ -1,39 +1,19 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
 import SearchBar from './SearchBar';
 
 const SearchBarSection: React.FC = () => {
   return (
     <>
-      <Box
-        sx={{
-          py: '1em',
-          px: { xs: 0, lg: ' 1rem' },
-          mt: 5,
-          bgcolor: '#FFFFFF',
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: { xs: '80%', sm: '600px', md: '800px', lg: '1200px' },
-          mx: { xs: 0, lg: 'auto' },
-        }}
-      >
-        <Typography
-          id='filter-title'
-          color='primary'
-          variant='h6'
-          gutterBottom
-          sx={{ fontWeight: 700 }}
-        >
+      <div className="p-4 mt-10 bg-white flex flex-col">
+        <h2 id="filter-title" className="text-primary font-semibold mb-2">
           Search By Zip Code
-        </Typography>
-        <Grid container spacing={0} columns={12}>
-          <Grid item xs={12} sm={12} md={12} lg={12}>
+        </h2>
+        <div className="grid grid-cols-1">
+          <div className="col-span-1">
             <SearchBar />
-          </Grid>
-        </Grid>
-      </Box>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
