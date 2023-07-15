@@ -5,7 +5,6 @@ import Search from './Search';
 import Match from './Match';
 import { FavoritesProvider } from '../context/FavoritesContext';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Container from '@mui/material/Container';
 import { ZipCodesProvider } from '../context/ZipCodesContext';
 import About from './About';
 import DogCareTips from './DogCareTips';
