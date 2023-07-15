@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
         </h1>
         <h2 className="text-xl text-center font-light font-lexend lg:px-80 md:px-40 sm:px-10">
           Here at
-          <span className="text-custom-blue font-extrabold font-roboto">
+          <span className="text-custom-blue font-extrabold font-roboto pl-2">
             <Pets />
             FetchPups
           </span>
