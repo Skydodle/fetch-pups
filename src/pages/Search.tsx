@@ -20,7 +20,9 @@ const Search: React.FC = () => {
   const [page, setPage] = useState<number>(0);
   const [error, setError] = useState<string>('');
   const [asc, setAsc] = useState<boolean>(true);
-  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
+  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
+    'American Staffordshire Terrier',
+  ]);
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
@@ -83,64 +85,51 @@ const Search: React.FC = () => {
   const favoritesCount = favorites.length;
 
   return (
-    <>
-      <Container
-        maxWidth="lg"
-        disableGutters
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-        }}
-      >
-        {/* Search Section */}
-        <Container
-          disableGutters
-          maxWidth={false}
-          sx={{
-            maxWidth: { xs: '80%', lg: '18rem' },
-            mr: { xs: 0, lg: 2 },
-          }}
-        >
-          <SearchBar />
-          <FilterSection
-            asc={asc}
-            showComboBox={showFilter}
-            handleSort={toggleSortOrder}
-            toggleShowFilter={toggleShowFilter}
-            selectedBreeds={selectedBreeds}
-            setSelectedBreeds={setSelectedBreeds}
-            ageRange={ageRange}
-            handleAgeRangeSlider={handleAgeRangeSlider}
-            ageMin={ageMin}
-            ageMax={ageMax}
-          />
-        </Container>
-        {/* End Search Section */}
-        {/* Results Section */}
-        <Container disableGutters maxWidth="lg" sx={{ py: 1, px: 1, my: 5 }}>
-          <ResultsToolbar
-            favoritesCount={favoritesCount}
-            showFavorite={showFavorite}
-            toggleShowFavorites={toggleShowFavorites}
-            totalResults={totalResults}
-          />
-          {error && <p>{error}</p>}
-          {/* Dog Cards Section */}
-          <DogCardsSection
-            dogs={dogs}
-            showFavorite={showFavorite}
-            favorites={favorites}
-          />
-          {/*End Dog Cards Section*/}
-          <PaginationBar
-            totalResults={totalResults}
-            page={page}
-            setPage={setPage}
-          />
-        </Container>
-        {/* End Results Section */}
+    <div
+      id="search-page-container"
+      className=" px-5 lg:max-w-screen flex flex-row"
+    >
+      {/* Search Section */}
+      <div className=" px-4 lg:max-w-md">
+        <SearchBar />
+        <FilterSection
+          asc={asc}
+          showComboBox={showFilter}
+          handleSort={toggleSortOrder}
+          toggleShowFilter={toggleShowFilter}
+          selectedBreeds={selectedBreeds}
+          setSelectedBreeds={setSelectedBreeds}
+          ageRange={ageRange}
+          handleAgeRangeSlider={handleAgeRangeSlider}
+          ageMin={ageMin}
+          ageMax={ageMax}
+        />
+      </div>
+      {/* End Search Section */}
+      {/* Results Section */}
+      <Container disableGutters maxWidth="lg" sx={{ py: 1, px: 1, my: 5 }}>
+        <ResultsToolbar
+          favoritesCount={favoritesCount}
+          showFavorite={showFavorite}
+          toggleShowFavorites={toggleShowFavorites}
+          totalResults={totalResults}
+        />
+        {error && <p>{error}</p>}
+        {/* Dog Cards Section */}
+        <DogCardsSection
+          dogs={dogs}
+          showFavorite={showFavorite}
+          favorites={favorites}
+        />
+        {/*End Dog Cards Section*/}
+        <PaginationBar
+          totalResults={totalResults}
+          page={page}
+          setPage={setPage}
+        />
       </Container>
-    </>
+      {/* End Results Section */}
+    </div>
   );
 };
 
