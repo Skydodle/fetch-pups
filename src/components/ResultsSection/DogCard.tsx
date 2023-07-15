@@ -1,13 +1,5 @@
 import React, { useContext } from 'react';
 import { Dog } from '../../services/api';
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  IconButton,
-} from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Favorite } from '@mui/icons-material';
 import { FavoritesContext } from '../../context/FavoritesContext';
@@ -24,7 +16,7 @@ const DogCard: React.FC<DogCardProps> = ({ dog }) => {
   const handleFavoriteIconButtonClick = () => {
     if (isFavorite) {
       setFavorites((prevFavorites) =>
-        prevFavorites.filter((id) => id !== dog.id)
+        prevFavorites.filter((id) => id !== dog.id),
       );
     } else {
       setFavorites((prevFavorites) => [...prevFavorites, dog.id]);
@@ -32,69 +24,40 @@ const DogCard: React.FC<DogCardProps> = ({ dog }) => {
   };
 
   return (
-    <Card
-      raised
-      sx={{
-        maxWidth: 275,
-        minWidth: 268,
-        margin: '0 auto 0',
-        padding: '0, 0.5em',
-        borderRadius: 2,
-        bgcolor: 'white',
-        maxHeight: 390,
-      }}
+    <div
+      id="dog-card"
+      className="max-w-[277.33px] min-w-[268px] mx-auto  bg-white shadow-xl rounded-md overflow-hidden max-h-[390px] min-h-[390px]"
     >
-      <CardMedia
-        component='img'
-        height='200'
-        width='100%'
-        image={dog.img}
+      <img
+        src={dog.img}
         alt={dog.name}
-        sx={{ objectFit: 'cover' }}
+        className="w-full h-[200px] object-cover"
       />
-      <CardContent>
-        <Typography gutterBottom variant='h6' component='div'>
-          {dog.name}
-        </Typography>
-        <Typography
-          variant='body1'
-          color='text.primary'
-          sx={{ fontWeight: 400 }}
+      <div id="dog-info" className="px-4 pt-2 min-h-[130px] ">
+        <h2 className="font-bold text-lg mb-2">{dog.name}</h2>
+        <p className=" text-base ">{dog.breed}</p>
+        <p className=" text-base ">{dog.age} years old</p>
+        <p className=" text-base ">
+          <span className="font-light">Zip Code:</span>{' '}
+          <span>{dog.zip_code}</span>
+        </p>
+      </div>
+      <div id="dog-card-action" className="flex justify-start px-4 pt-2 pb-4">
+        <button
+          aria-label={
+            !isFavorite ? 'add to favorites' : 'remove from favorites'
+          }
+          onClick={handleFavoriteIconButtonClick}
+          className="focus:outline-none"
         >
-          Breed: {dog.breed}
-        </Typography>
-        <Typography
-          variant='body1'
-          color='text.primary'
-          sx={{ fontWeight: 400 }}
-        >
-          Age: {dog.age} years old
-        </Typography>
-        <Typography
-          variant='body1'
-          color='text.primary'
-          sx={{ fontWeight: 400 }}
-        >
-          Location: {dog.zip_code}
-        </Typography>
-        {favorites && (
-          <CardActions disableSpacing sx={{ py: 0, pl: 0 }}>
-            <IconButton
-              aria-label={
-                !isFavorite ? 'add to favorites' : 'remove from favorites'
-              }
-              onClick={handleFavoriteIconButtonClick}
-            >
-              {isFavorite ? (
-                <Favorite color='error' fontSize='medium' />
-              ) : (
-                <FavoriteBorderIcon color='error' fontSize='medium' />
-              )}
-            </IconButton>
-          </CardActions>
-        )}
-      </CardContent>
-    </Card>
+          {isFavorite ? (
+            <Favorite className="text-red-500" fontSize="medium" />
+          ) : (
+            <FavoriteBorderIcon className="text-red-500" fontSize="medium" />
+          )}
+        </button>
+      </div>
+    </div>
   );
 };
 
