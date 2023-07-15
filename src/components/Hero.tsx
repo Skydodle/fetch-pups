@@ -8,13 +8,12 @@ const Hero: React.FC = () => {
   return (
     <div className="bg-off-white pt-5 pb-24 pl-0 ">
       <div className="mx-auto p-5 ">
-        <h1 className="text-4xl text-center font-bold mb-4 font-lexend">
+        <h1 className="text-4xl text-center font-bold mb-4 font-lexend ">
           Lets find a match!
         </h1>
-        <h2 className="text-xl text-center font-light font-lexend">
+        <h2 className="text-xl text-center font-light font-lexend lg:px-80 md:px-40 sm:px-10">
           Here at
           <span className="text-custom-blue font-extrabold font-roboto">
-            {' '}
             <Pets />
             FetchPups
           </span>
