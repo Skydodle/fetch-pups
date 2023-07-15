@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-off-white pt-40 pb-24 pl-0 min-h-screen">
+    <div className="bg-off-white pt-5 pb-24 pl-0 ">
       <div className="mx-auto p-5 ">
         <h1 className="text-4xl text-center font-bold mb-4 font-lexend">
           Lets find a match!
