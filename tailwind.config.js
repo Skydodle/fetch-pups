@@ -19,5 +19,10 @@ module.exports = {
       roboto: ['Roboto', 'san-serif'],
     },
   },
+  variants: {
+    extend: {
+      position: ['responsive'], // enabling the position variant for responsive design
+    },
+  },
   plugins: [],
 };
