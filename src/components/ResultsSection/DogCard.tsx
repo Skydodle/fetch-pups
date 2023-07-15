@@ -30,10 +30,10 @@ const DogCard: React.FC<DogCardProps> = ({ dog }) => {
     >
       <img
         src={dog.img}
-        alt={dog.name}
+        alt="dog card profile"
         className="w-full h-[200px] object-cover"
       />
-      <div id="dog-info" className="px-4 pt-2 min-h-[130px] ">
+      <div id="dog-info" className="px-4 pt-4 min-h-[130px] ">
         <h2 className="font-bold text-lg mb-2">{dog.name}</h2>
         <p className=" text-base ">{dog.breed}</p>
         <p className=" text-base ">{dog.age} years old</p>
