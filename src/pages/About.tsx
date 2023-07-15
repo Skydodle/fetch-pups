@@ -8,7 +8,7 @@ const About: React.FC = () => {
       <div
         id="about-header"
         style={{ backgroundImage: `url(${bg2})` }}
-        className="w-full h-auto pb-80 lg:pt-40 md:pt-10 bg-no-repeat bg-cover bg-center bg-opacity-5 relative"
+        className="w-full h-auto pb-80  md:pb-60 lg:pb-40 lg:pt-40 md:pt-10 bg-no-repeat bg-cover bg-center bg-opacity-5 relative"
       >
         <div className="md:px-20 text-white h-full flex flex-col justify-end items-start md:items-normal">
           <div className="max-w-md md:max-w-lg lg:max-w-xl">
@@ -17,7 +17,7 @@ const About: React.FC = () => {
               <span className="mb-1 block font-syne font-extrabold text-5xl">
                 Perfect
               </span>{' '}
-              Ferry Companion{' '}
+              Furry Companion{' '}
             </h1>
             <div className="pl-2 mt-2 bg-black bg-opacity-50 p-2 sm:rounded-none md:rounded-md absolute bottom-0 md:relative w-full sm:mx-auto md:max-w-sm lg:max-w-lg md:text-left">
               <p className="text-base text-white break-words text-center">
