@@ -87,7 +87,7 @@ const Search: React.FC = () => {
   return (
     <div
       id="search-page-container"
-      className=" px-5 lg:max-w-screen flex flex-row"
+      className=" px-32 lg:max-w-screen flex flex-row"
     >
       {/* Search Section */}
       <div className=" sm:px-0 md:px-2 lg:px-4 lg:max-w-md md:max-w-sm sm:max-w-xs">
