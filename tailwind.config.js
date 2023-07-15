@@ -8,6 +8,9 @@ module.exports = {
         'vibrant-orange': '#FF5722',
         'off-white': '#F9F7F2',
       },
+      backgroundSize: {
+        '1400px': '1400px',
+      },
     },
     fontFamily: {
       IBM: ['IBM Plex Sans Condensed', 'sans-serif'],
