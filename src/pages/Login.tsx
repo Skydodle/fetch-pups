@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginForm from '../components/LoginForm';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import './Login.css'; // <-- Import here
+import './Login.css';
 import loginbg1 from '../assets/loginbg1.jpeg';
 import loginbg2 from '../assets/loginbg2.jpeg';
 import loginbg3 from '../assets/loginbg3.jpeg';
 import loginbg4 from '../assets/loginbg4.jpeg';
 
 const Login: React.FC = () => {
-  const matches = useMediaQuery('(max-width:600px)');
+  const [interval, setInterval] = useState(2000);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInterval(6000);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div
@@ -22,12 +31,13 @@ const Login: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.10)',
       }}
     >
       <Carousel
         autoPlay
         infiniteLoop
-        interval={6000}
+        interval={interval}
         transitionTime={6000}
         showThumbs={false}
         showStatus={false}
