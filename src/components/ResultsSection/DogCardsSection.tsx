@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dog } from '../../services/api';
-import { Grid } from '@mui/material';
 import DogCard from './DogCard';
 import EmptyFavoritesAlert from './EmptyFavoritesAlert';
 
@@ -16,17 +15,17 @@ const DogCardsSection: React.FC<DogCardsSectionProps> = ({
   favorites,
 }) => {
   return (
-    <Grid container spacing={3}>
+    <div className="flex flex-col items-center">
       {favorites.length === 0 && showFavorite ? (
         <EmptyFavoritesAlert />
       ) : (
-        dogs.map((dog: Dog) => (
-          <Grid item xs={12} sm={6} md={4} key={dog.id}>
-            <DogCard dog={dog} />
-          </Grid>
-        ))
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+          {dogs.map((dog: Dog) => (
+            <DogCard dog={dog} key={dog.id} />
+          ))}
+        </div>
       )}
-    </Grid>
+    </div>
   );
 };
 

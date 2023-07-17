@@ -5,12 +5,11 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 import { useNavigate } from 'react-router-dom';
 import { FavoritesContext } from '../../context/FavoritesContext';
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
-});
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  },
+);
 
 const MatchButton: React.FC = () => {
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ const MatchButton: React.FC = () => {
 
   const handleClose = (
     event?: React.SyntheticEvent | Event,
-    reason?: string
+    reason?: string,
   ) => {
     if (reason === 'clickaway') {
       return;
@@ -39,17 +38,17 @@ const MatchButton: React.FC = () => {
   return (
     <>
       <Button
-        variant='contained'
-        color='secondary'
-        size='small'
+        variant="contained"
+        color="secondary"
+        size="small"
         startIcon={<CelebrationIcon />}
-        sx={{ fontWeight: 700, mx: 1 }}
+        sx={{ fontWeight: 700, mx: 1, my: 1 }}
         onClick={handleRegenerateMatch}
       >
         Match
       </Button>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity='warning'>
+        <Alert onClose={handleClose} severity="warning">
           Please add some favorites first!
         </Alert>
       </Snackbar>

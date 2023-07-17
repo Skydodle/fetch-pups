@@ -1,0 +1,36 @@
+/* Login.css */
+
+.carousel .slide {
+  background: transparent !important;
+}
+
+.carousel .slide img {
+  max-height: 100vh;
+  width: auto !important;
+  margin: auto;
+}
+
+.carousel-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-mask::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.1); /* semi-transparent black */
+}
+
+/* Extra small devices (portrait phones, less than 600px) */
+@media (max-width: 600px) {
+  .carousel .slide img {
+    max-height: none;
+    height: 65vh;
+    object-fit: fill; /* This will keep the aspect ratio of your images */
+  }
+}

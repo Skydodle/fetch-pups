@@ -1,47 +1,33 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import NavBar from '../components/Navigation/NavBar';
-import Search from './Search';
-import Match from './Match';
 import { FavoritesProvider } from '../context/FavoritesContext';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Container from '@mui/material/Container';
 import { ZipCodesProvider } from '../context/ZipCodesContext';
-import About from './About';
-import DogCareTips from './DogCareTips';
 
-const theme = createTheme({
-  palette: {
-    background: {
-      default: 'whitesmoke',
-    },
-  },
-});
+import NavBar from '../components/Navigation/NavBar';
+import About from './About';
+import Search from './Search';
+import DogCareTips from './DogCareTips';
+import Match from './Match';
+import SecondaryNavBar from '../components/Navigation/SecondaryNavBar';
 
 const MainLayout: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <FavoritesProvider>
-        <ZipCodesProvider>
+    <FavoritesProvider>
+      <ZipCodesProvider>
+        <header className="sticky top-0 z-10">
           <NavBar />
-          <Container
-            disableGutters
-            maxWidth={false}
-            sx={{
-              bgcolor: theme.palette.background.default,
-              minHeight: '100%',
-            }}
-          >
-            <Routes>
-              <Route path='/about' element={<About />} />
-              <Route path='/search' element={<Search />} />
-              <Route path='/match' element={<Match />} />
-              <Route path='/tips' element={<DogCareTips />} />
-            </Routes>
-          </Container>
-        </ZipCodesProvider>
-      </FavoritesProvider>
-    </ThemeProvider>
+          <SecondaryNavBar />
+        </header>
+        <main className="flex flex-col bg-off-white font-lexend px-0 min-h-screen-minus-nav overflow-auto">
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/match" element={<Match />} />
+            <Route path="/tips" element={<DogCareTips />} />
+          </Routes>
+        </main>
+      </ZipCodesProvider>
+    </FavoritesProvider>
   );
 };
 

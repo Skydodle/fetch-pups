@@ -12,9 +12,10 @@ const ClearFavoritesButton: React.FC = () => {
 
   return (
     <IconButton
-      aria-label='clear favorites'
+      aria-label="clear favorites"
       onClick={handleClearFavoritesClick}
-      color='error'
+      color="error"
+      size="small"
     >
       <BackspaceIcon />
     </IconButton>

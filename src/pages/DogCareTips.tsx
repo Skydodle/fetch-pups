@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Grid,
-  Box,
-  Typography,
-  ButtonBase,
-  useMediaQuery,
-} from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import bg5 from '../assets/bg5.jpeg';
 import tips1 from '../assets/tips1.jpeg';
 import tips2 from '../assets/tips2.jpeg';
@@ -39,82 +33,62 @@ const DogCareTips: React.FC = () => {
   const isXsScreen = useMediaQuery('(max-width:600px)');
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={5} sx={{ height: isXsScreen ? '30vh' : '100%' }}>
+    <div
+      id="tip-page-container"
+      className="flex flex-wrap bg-off-white"
+      style={{ height: '100vh' }}
+    >
+      <div
+        id="tip-page-left"
+        className={`w-full flex-grow ${
+          !isXsScreen && 'md:w-5/12'
+        } h-60 md:h-full`}
+      >
         <img
           src={bg5}
           alt={'Happy Dogs'}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: isXsScreen ? 'cover' : 'initial',
-          }}
+          className={`w-full h-full object-cover`}
         />
-      </Grid>
-      <Grid item xs={12} md={7}>
-        <Typography
-          variant='h4'
-          align='center'
-          color='text-primary'
-          gutterBottom
-          sx={{ mt: 2, pt: 5, fontWeight: 700, py: { xs: 0 } }}
-        >
-          Dog Care Tips
-        </Typography>
-        <Typography
-          variant='h6'
-          align='center'
-          color='text-primary'
-          sx={{ mt: 2, mb: 4, py: 1, px: 10 }}
-        >
-          Explore our curated dog care tips to ensure your furry friend leads a
-          happy and healthy life. Click on any tip to learn more.
-        </Typography>
-        <Grid container spacing={2} sx={{ p: 5 }}>
+      </div>
+      <div id="tip-page-right" className="w-full md:w-7/12 bg-off-white">
+        <div className="bg-vibrant-orange text-white p-4 rounded-md m-5 shadow-lg font-IBM">
+          <h1 className="text-3xl text-center font-bold mt-2 pt-5 py-4">
+            Dog Care Tips
+          </h1>
+          <p className="text-lg text-center mt-2 mb-4 py-1 px-10">
+            Explore our curated dog care tips collection to ensure your furry
+            friend leads a happy and healthy life. Click on any tip to learn
+            more.
+          </p>
+        </div>
+        <div className="flex flex-wrap p-5 justify-center md:justify-center">
           {tips.map((tip, index) => (
-            <Grid item xs={6} key={index} sx={{ p: 2 }}>
-              <ButtonBase
-                style={{ width: '100%' }}
+            <div
+              key={index}
+              className="flex justify-center w-full sm:w-1/2 lg:w-1/2 pt-2 pb-4"
+            >
+              <button
                 onClick={() => window.open(tip.link, '_blank')}
+                className="flex flex-col w-64 bg-white rounded-md overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
               >
-                <Box
-                  sx={{
-                    width: 277,
-                    flexDirection: 'column',
-                    bgcolor: 'white',
-                    borderRadius: 2,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      height: { xs: 100, lg: 156 },
-                      objectFit: isXsScreen ? 'cover' : 'initial',
-                    }}
-                  >
-                    <img
-                      src={tip.image}
-                      alt={`Dog Tip ${index + 1}`}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: 4,
-                        objectFit: 'cover',
-                      }}
-                    />
-                  </Box>
-                  <Typography
-                    align='center'
-                    sx={{ pt: 1, pb: 5, px: 1, fontWeight: 500 }}
-                  >
+                <div className="h-40 overflow-hidden">
+                  <img
+                    src={tip.image}
+                    alt={`Dog Tip ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="px-4 py-2 font-lexend">
+                  <p className="font-medium text-center text-custom-blue">
                     {tip.caption}
-                  </Typography>
-                </Box>
-              </ButtonBase>
-            </Grid>
+                  </p>
+                </div>
+              </button>
+            </div>
           ))}
-        </Grid>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+    </div>
   );
 };
 

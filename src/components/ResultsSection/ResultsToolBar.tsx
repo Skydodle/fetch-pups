@@ -1,7 +1,4 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import FavoritesButton from '../Buttons/FavoriteButton';
 import ClearFavoritesButton from '../Buttons/ClearFavoritesButton';
 import MatchButton from '../Buttons/MatchButton';
@@ -21,21 +18,12 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
   totalResults,
 }) => {
   return (
-    <Grid
-      container
-      spacing={1}
-      justifyContent='space between'
-      sx={{
-        py: 1,
-        pt: 0.5,
-        mb: 1,
-        bgcolor: '#dfe3e8',
-        borderRadius: 1,
-        ml: '0.2em',
-      }}
+    <div
+      id="results-tool-bar"
+      className="flex justify-between px-2 mb-2 bg-gray-200 rounded-md ml-1"
     >
-      <Grid item xs={9}>
-        <Container>
+      <div className=" pl-2">
+        <div className="flex flex-wrap">
           <FavoritesButton
             favoritesCount={favoritesCount}
             showFavorite={showFavorite}
@@ -44,19 +32,14 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
           {showFavorite ? <ClearFavoritesButton /> : null}
           <MatchButton />
           {showFavorite ? <SearchButton /> : null}
-        </Container>
-      </Grid>
-      <Grid item xs={3}>
-        <Typography
-          variant='subtitle1'
-          align='right'
-          sx={{ pt: 1, pb: 0, pr: 2 }}
-          color='primary'
-        >
+        </div>
+      </div>
+      <div className=" flex items-center justify-end">
+        <p className="text-custom-blue font-semibold pr-2">
           <b>{totalResults}</b> Results
-        </Typography>
-      </Grid>
-    </Grid>
+        </p>
+      </div>
+    </div>
   );
 };
 

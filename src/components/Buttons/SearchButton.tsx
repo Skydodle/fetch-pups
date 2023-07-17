@@ -18,10 +18,11 @@ const SearchButton: React.FC = () => {
 
   return (
     <Button
-      variant='contained'
-      color='primary'
-      size='small'
+      variant="contained"
+      color="primary"
+      size="small"
       onClick={handleBackToSearch}
+      sx={{ my: 1 }}
     >
       Back to Search
     </Button>

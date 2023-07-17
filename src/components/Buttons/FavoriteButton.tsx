@@ -28,12 +28,13 @@ const FavoritesButton: React.FC<FavoriteButtonProps> = ({
   return (
     <Button
       variant={showFavorite ? 'outlined' : 'contained'}
-      color='error'
+      color="error"
       startIcon={<Favorite />}
-      size='small'
+      size="small"
       onClick={handleFavoriteButtonClick}
       sx={{
         fontWeight: 700,
+        my: 1,
       }}
     >
       Favorites ({favoritesCount})

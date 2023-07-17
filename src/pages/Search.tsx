@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Dog } from '../services/api';
-import Container from '@mui/material/Container';
-import PaginationBar from '../components/PaginationBar';
-import FilterSection from '../components/Filter/FilterSection';
-import { FavoritesContext } from '../context/FavoritesContext';
 import { isAxiosError } from 'axios';
+import { Dog } from '../services/api';
 import { fetchDogs } from '../services/dogApi';
-import DogCardsSection from '../components/ResultsSection/DogCardsSection';
-import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
-import SearchBar from '../components/Filter/SearchBarSection';
+
+import { FavoritesContext } from '../context/FavoritesContext';
 import { useZipCodes } from '../context/ZipCodesContext';
+
+import SearchBarSection from '../components/SearchSection/SearchBarSection';
+import FilterSection from '../components/SearchSection/FilterSection';
+import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
+import DogCardsSection from '../components/ResultsSection/DogCardsSection';
+import PaginationBar from '../components/PaginationBar';
 
 const Search: React.FC = () => {
   const { favorites, showFavorite, setShowFavorite } =
@@ -20,8 +21,11 @@ const Search: React.FC = () => {
   const [page, setPage] = useState<number>(0);
   const [error, setError] = useState<string>('');
   const [asc, setAsc] = useState<boolean>(true);
-  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
-  const [showFilter, setShowFilter] = useState<boolean>(true);
+  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
+    'American Staffordshire Terrier',
+    'Yorkshire Terrier',
+  ]);
+  const [showFilter, setShowFilter] = useState<boolean>(false);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
   const [ageMin, ageMax] = ageRange as [number, number];
@@ -40,7 +44,7 @@ const Search: React.FC = () => {
         page,
         selectedBreeds,
         ageRange as number[],
-        zipCodes
+        zipCodes,
       );
       setDogs(dogs);
       setTotalResults(totalResults);
@@ -50,7 +54,7 @@ const Search: React.FC = () => {
         setError('An error occurred while fetching dogs, please try again');
       } else if (isAxiosError(err) && err.request) {
         setError(
-          'A network error occurred, please check your internet connection'
+          'A network error occurred, please check your internet connection',
         );
       } else {
         setError('An unexpected error occurred');
@@ -83,66 +87,57 @@ const Search: React.FC = () => {
   const favoritesCount = favorites.length;
 
   return (
-    <>
-      <main>
-        <Container
-          maxWidth='lg'
-          disableGutters
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-          }}
-        >
-          {/* Search Section */}
-          <Container
-            disableGutters
-            maxWidth={false}
-            sx={{
-              maxWidth: { xs: '80%', lg: '18rem' },
-              mr: { xs: 0, lg: 2 },
-            }}
-          >
-            <SearchBar />
-            <FilterSection
-              asc={asc}
-              showComboBox={showFilter}
-              handleSort={toggleSortOrder}
-              toggleShowFilter={toggleShowFilter}
-              selectedBreeds={selectedBreeds}
-              setSelectedBreeds={setSelectedBreeds}
-              ageRange={ageRange}
-              handleAgeRangeSlider={handleAgeRangeSlider}
-              ageMin={ageMin}
-              ageMax={ageMax}
-            />
-          </Container>
-          {/* End Search Section */}
-          {/* Results Section */}
-          <Container disableGutters maxWidth='lg' sx={{ py: 1, px: 1, my: 5 }}>
-            <ResultsToolbar
-              favoritesCount={favoritesCount}
-              showFavorite={showFavorite}
-              toggleShowFavorites={toggleShowFavorites}
-              totalResults={totalResults}
-            />
-            {error && <p>{error}</p>}
-            {/* Dog Cards Section */}
-            <DogCardsSection
-              dogs={dogs}
-              showFavorite={showFavorite}
-              favorites={favorites}
-            />
-            {/*End Dog Cards Section*/}
-            <PaginationBar
-              totalResults={totalResults}
-              page={page}
-              setPage={setPage}
-            />
-          </Container>
-          {/* End Results Section */}
-        </Container>
-      </main>
-    </>
+    <div
+      id="search-page-container"
+      className="xl:px-32 lg:px-6 md:px-4 sm:px-2 lg:max-w-screen flex flex-col md:flex-row"
+    >
+      {/* Search Section */}
+      <div
+        id="search-section"
+        className="sm:w-full md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 mt-10 py-4"
+      >
+        <SearchBarSection />
+        <FilterSection
+          asc={asc}
+          showFilter={showFilter}
+          handleSort={toggleSortOrder}
+          toggleShowFilter={toggleShowFilter}
+          selectedBreeds={selectedBreeds}
+          setSelectedBreeds={setSelectedBreeds}
+          ageRange={ageRange}
+          handleAgeRangeSlider={handleAgeRangeSlider}
+          ageMin={ageMin}
+          ageMax={ageMax}
+        />
+      </div>
+      {/* End Search Section */}
+      {/* Results Section */}
+      <div
+        id="results-section"
+        className="sm:w-full md:w-2/3 lg:w-3/4 xl:w-3/4 px-2 py-4 my-10 mx-auto max-w-screen-lg"
+      >
+        <ResultsToolbar
+          favoritesCount={favoritesCount}
+          showFavorite={showFavorite}
+          toggleShowFavorites={toggleShowFavorites}
+          totalResults={totalResults}
+        />
+        {error && <p>{error}</p>}
+        {/* Dog Cards Section */}
+        <DogCardsSection
+          dogs={dogs}
+          showFavorite={showFavorite}
+          favorites={favorites}
+        />
+        {/*End Dog Cards Section*/}
+        <PaginationBar
+          totalResults={totalResults}
+          page={page}
+          setPage={setPage}
+        />
+      </div>
+      {/* End Results Section */}
+    </div>
   );
 };
 

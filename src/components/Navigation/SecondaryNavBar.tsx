@@ -1,36 +1,34 @@
 import React from 'react';
-import { AppBar, Toolbar, Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navButtons = [
   { name: 'About', path: '/about' },
   { name: 'Search', path: '/search' },
-  { name: 'Dog Care Tips', path: '/tips' },
+  { name: 'Dog Care', path: '/tips' },
 ];
 
 const SecondaryNavBar: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
-    <AppBar position='sticky' component='nav'>
-      <Toolbar
-        variant='dense'
-        sx={{ justifyContent: 'space-evenly', bgcolor: 'white' }}
-      >
-        {' '}
+    <div className="bg-white shadow-md">
+      <div className="flex justify-evenly p-2">
         {navButtons.map((button) => (
-          <Button
-            color='primary'
+          <button
+            className={`${
+              location.pathname === button.path
+                ? 'text-indigo-700'
+                : 'text-custom-blue'
+            } px-2 py-1 rounded-md hover:text-indigo-700 text-lg font-lexend font-medium transition-colors duration-200`}
             onClick={() => navigate(button.path)}
             key={button.name}
-            size='large'
-            sx={{ pb: 0, fontWeight: 700 }}
           >
             {button.name}
-          </Button>
+          </button>
         ))}
-      </Toolbar>
-    </AppBar>
+      </div>
+    </div>
   );
 };
 
