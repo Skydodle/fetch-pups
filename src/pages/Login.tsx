@@ -31,7 +31,7 @@ const Login: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.10)',
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
       }}
     >
       <Carousel
