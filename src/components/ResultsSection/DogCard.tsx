@@ -26,7 +26,7 @@ const DogCard: React.FC<DogCardProps> = ({ dog }) => {
   return (
     <div
       id="dog-card"
-      className="max-w-[277.33px] min-w-[268px] mx-auto  bg-white shadow-xl rounded-md overflow-hidden max-h-[390px] min-h-[390px] my-4"
+      className="max-w-[277.33px] min-w-[268px] mx-auto  bg-white shadow-xl rounded-md overflow-hidden max-h-[390px] min-h-[390px] mt-2"
     >
       <img
         src={dog.img}
