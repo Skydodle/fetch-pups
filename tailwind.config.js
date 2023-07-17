@@ -14,6 +14,9 @@ module.exports = {
       screens: {
         lg: '1160px',
       },
+      minHeight: {
+        'screen-minus-nav': 'calc(100vh - 112px)',
+      },
     },
     fontFamily: {
       IBM: ['IBM Plex Sans Condensed', 'sans-serif'],
