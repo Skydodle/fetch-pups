@@ -33,12 +33,16 @@ const DogCareTips: React.FC = () => {
   const isXsScreen = useMediaQuery('(max-width:600px)');
 
   return (
-    <div id="tip-page-container" className="flex flex-wrap">
+    <div
+      id="tip-page-container"
+      className="flex flex-wrap bg-off-white"
+      style={{ height: '100vh' }}
+    >
       <div
         id="tip-page-left"
         className={`w-full flex-grow ${
           !isXsScreen && 'md:w-5/12'
-        } h-60 md:min-h-screen-minus-nav`}
+        } h-60 md:h-full`}
       >
         <img
           src={bg5}
@@ -46,34 +50,36 @@ const DogCareTips: React.FC = () => {
           className={`w-full h-full object-cover`}
         />
       </div>
-      <div id="tip-page-right" className="w-full md:w-7/12">
-        <h1 className="text-2xl text-center font-semibold mt-2 pt-5 py-4">
-          Dog Care Tips
-        </h1>
-        <p className="text-lg text-center mt-2 mb-4 py-1 px-10">
-          Explore our curated dog care tips to ensure your furry friend leads a
-          happy and healthy life. Click on any tip to learn more.
-        </p>
-        <div className="flex flex-wrap p-5">
+      <div id="tip-page-right" className="w-full md:w-7/12 bg-off-white">
+        <div className="bg-vibrant-orange text-white p-4 rounded-md m-5 shadow-lg font-IBM">
+          <h1 className="text-3xl text-center font-bold mt-2 pt-5 py-4">
+            Dog Care Tips
+          </h1>
+          <p className="text-lg text-center mt-2 mb-4 py-1 px-10">
+            Explore our curated dog care tips collection to ensure your furry
+            friend leads a happy and healthy life. Click on any tip to learn
+            more.
+          </p>
+        </div>
+        <div className="flex flex-wrap p-5 justify-center md:justify-center">
           {tips.map((tip, index) => (
-            <div key={index} className="w-1/2 p-2">
+            <div
+              key={index}
+              className="flex justify-center w-full sm:w-1/2 lg:w-1/2 pt-2 pb-4"
+            >
               <button
-                className="w-full"
                 onClick={() => window.open(tip.link, '_blank')}
+                className="flex flex-col w-64 bg-white rounded-md overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
               >
-                <div className="w-full flex flex-col bg-white rounded-md">
-                  <div
-                    className={`h-24 lg:h-40 object-${
-                      isXsScreen ? 'cover' : 'scale-down'
-                    }`}
-                  >
-                    <img
-                      src={tip.image}
-                      alt={`Dog Tip ${index + 1}`}
-                      className="w-full h-full object-cover rounded-md"
-                    />
-                  </div>
-                  <p className="text-center pt-1 pb-5 px-1 font-medium">
+                <div className="h-40 overflow-hidden">
+                  <img
+                    src={tip.image}
+                    alt={`Dog Tip ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="px-4 py-2 font-lexend">
+                  <p className="font-medium text-center text-custom-blue">
                     {tip.caption}
                   </p>
                 </div>
