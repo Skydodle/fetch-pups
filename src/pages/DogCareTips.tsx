@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Grid,
-  Box,
-  Typography,
-  ButtonBase,
-  useMediaQuery,
-} from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import bg5 from '../assets/bg5.jpeg';
 import tips1 from '../assets/tips1.jpeg';
 import tips2 from '../assets/tips2.jpeg';
@@ -39,82 +33,56 @@ const DogCareTips: React.FC = () => {
   const isXsScreen = useMediaQuery('(max-width:600px)');
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={5} sx={{ height: isXsScreen ? '30vh' : '100%' }}>
+    <div id="tip-page-container" className="flex flex-wrap">
+      <div
+        id="tip-page-left"
+        className={`w-full flex-grow ${
+          !isXsScreen && 'md:w-5/12'
+        } h-60 md:min-h-screen-minus-nav`}
+      >
         <img
           src={bg5}
           alt={'Happy Dogs'}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: isXsScreen ? 'cover' : 'initial',
-          }}
+          className={`w-full h-full object-cover`}
         />
-      </Grid>
-      <Grid item xs={12} md={7}>
-        <Typography
-          variant='h4'
-          align='center'
-          color='text-primary'
-          gutterBottom
-          sx={{ mt: 2, pt: 5, fontWeight: 700, py: { xs: 0 } }}
-        >
+      </div>
+      <div id="tip-page-right" className="w-full md:w-7/12">
+        <h1 className="text-2xl text-center font-semibold mt-2 pt-5 py-4">
           Dog Care Tips
-        </Typography>
-        <Typography
-          variant='h6'
-          align='center'
-          color='text-primary'
-          sx={{ mt: 2, mb: 4, py: 1, px: 10 }}
-        >
+        </h1>
+        <p className="text-lg text-center mt-2 mb-4 py-1 px-10">
           Explore our curated dog care tips to ensure your furry friend leads a
           happy and healthy life. Click on any tip to learn more.
-        </Typography>
-        <Grid container spacing={2} sx={{ p: 5 }}>
+        </p>
+        <div className="flex flex-wrap p-5">
           {tips.map((tip, index) => (
-            <Grid item xs={6} key={index} sx={{ p: 2 }}>
-              <ButtonBase
-                style={{ width: '100%' }}
+            <div key={index} className="w-1/2 p-2">
+              <button
+                className="w-full"
                 onClick={() => window.open(tip.link, '_blank')}
               >
-                <Box
-                  sx={{
-                    width: 277,
-                    flexDirection: 'column',
-                    bgcolor: 'white',
-                    borderRadius: 2,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      height: { xs: 100, lg: 156 },
-                      objectFit: isXsScreen ? 'cover' : 'initial',
-                    }}
+                <div className="w-full flex flex-col bg-white rounded-md">
+                  <div
+                    className={`h-24 lg:h-40 object-${
+                      isXsScreen ? 'cover' : 'scale-down'
+                    }`}
                   >
                     <img
                       src={tip.image}
                       alt={`Dog Tip ${index + 1}`}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: 4,
-                        objectFit: 'cover',
-                      }}
+                      className="w-full h-full object-cover rounded-md"
                     />
-                  </Box>
-                  <Typography
-                    align='center'
-                    sx={{ pt: 1, pb: 5, px: 1, fontWeight: 500 }}
-                  >
+                  </div>
+                  <p className="text-center pt-1 pb-5 px-1 font-medium">
                     {tip.caption}
-                  </Typography>
-                </Box>
-              </ButtonBase>
-            </Grid>
+                  </p>
+                </div>
+              </button>
+            </div>
           ))}
-        </Grid>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+    </div>
   );
 };
 
