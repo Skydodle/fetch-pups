@@ -1,5 +1,4 @@
 import React from 'react';
-import { AppBar, Toolbar, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const navButtons = [
@@ -12,25 +11,19 @@ const SecondaryNavBar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position='sticky' component='nav'>
-      <Toolbar
-        variant='dense'
-        sx={{ justifyContent: 'space-evenly', bgcolor: 'white' }}
-      >
-        {' '}
+    <div className="bg-white">
+      <div className="flex justify-evenly p-2">
         {navButtons.map((button) => (
-          <Button
-            color='primary'
+          <button
+            className="text-custom-blue text-lg font-bold"
             onClick={() => navigate(button.path)}
             key={button.name}
-            size='large'
-            sx={{ pb: 0, fontWeight: 700 }}
           >
             {button.name}
-          </Button>
+          </button>
         ))}
-      </Toolbar>
-    </AppBar>
+      </div>
+    </div>
   );
 };
 
