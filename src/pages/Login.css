@@ -1,0 +1,11 @@
+/* Login.css */
+
+.carousel .slide {
+  background: transparent !important;
+}
+
+.carousel .slide img {
+  max-height: 100vh;
+  width: auto !important;
+  margin: auto;
+}
