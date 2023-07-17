@@ -16,7 +16,7 @@ const MainLayout: React.FC = () => {
         <header>
           <NavBar />
         </header>
-        <main className="flex flex-col bg-off-white font-lexend px-0">
+        <main className="flex flex-col bg-off-white font-lexend px-0 min-h-screen-minus-nav">
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
