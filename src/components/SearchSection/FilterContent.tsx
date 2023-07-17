@@ -27,8 +27,8 @@ const FilterContent: React.FC<FilterContentProps> = ({
         showFilter ? 'block' : 'hidden'
       } flex-col py-2 text-custom-blue`}
     >
-      <div className="flex flex-col py-1">
-        <p className="text-sm mb-2 ">Select Dog Breed(s)</p>
+      <div className="flex flex-col py-2">
+        <p className="text-sm mb-3 ">Select Dog Breed(s)</p>
         <div className="pl-1 pr-0">
           <ComboBox
             selectedBreeds={selectedBreeds}
@@ -39,7 +39,7 @@ const FilterContent: React.FC<FilterContentProps> = ({
       <div className="flex flex-col py-2">
         <p className="text-sm mb-2 ">Select Age Range:</p>
         <div className="pl-3 pr-0">
-          <p className="text-sm mb-2">
+          <p className="text-sm mb-2 text-black font-roboto font-normal">
             {ageMin} - {ageMax} years old
           </p>
           <Slider
