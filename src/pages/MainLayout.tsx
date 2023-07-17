@@ -13,10 +13,10 @@ const MainLayout: React.FC = () => {
   return (
     <FavoritesProvider>
       <ZipCodesProvider>
-        <header>
+        <header className="sticky top-0 z-10 bg-custom-blue">
           <NavBar />
         </header>
-        <main className="flex flex-col bg-off-white font-lexend px-0 min-h-screen-minus-nav">
+        <main className="flex flex-col bg-off-white font-lexend px-0 min-h-screen-minus-nav overflow-auto">
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
