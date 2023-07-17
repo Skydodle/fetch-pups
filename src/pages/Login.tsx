@@ -34,17 +34,33 @@ const Login: React.FC = () => {
         dynamicHeight={false}
         centerMode
       >
-        <div>
-          <img src={loginbg1} alt="Background 1" />
+        <div className="carousel-mask">
+          <img
+            src={loginbg1}
+            className="object-cover w-full h-full"
+            alt="Background 1"
+          />
         </div>
-        <div>
-          <img src={loginbg2} alt="Background 2" />
+        <div className="carousel-mask">
+          <img
+            src={loginbg2}
+            className="object-cover w-full h-full"
+            alt="Background 2"
+          />
         </div>
-        <div>
-          <img src={loginbg3} alt="Background 3" />
+        <div className="carousel-mask">
+          <img
+            src={loginbg3}
+            className="object-cover w-full h-full"
+            alt="Background 3"
+          />
         </div>
-        <div>
-          <img src={loginbg4} alt="Background 4" />
+        <div className="carousel-mask">
+          <img
+            src={loginbg4}
+            className="object-cover w-full h-full"
+            alt="Background 4"
+          />
         </div>
       </Carousel>
 
