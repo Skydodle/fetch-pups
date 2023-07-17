@@ -8,13 +8,15 @@ import About from './About';
 import Search from './Search';
 import DogCareTips from './DogCareTips';
 import Match from './Match';
+import SecondaryNavBar from '../components/Navigation/SecondaryNavBar';
 
 const MainLayout: React.FC = () => {
   return (
     <FavoritesProvider>
       <ZipCodesProvider>
-        <header className="sticky top-0 z-10 bg-custom-blue">
+        <header className="sticky top-0 z-10">
           <NavBar />
+          <SecondaryNavBar />
         </header>
         <main className="flex flex-col bg-off-white font-lexend px-0 min-h-screen-minus-nav overflow-auto">
           <Routes>

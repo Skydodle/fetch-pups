@@ -2,7 +2,6 @@ import React from 'react';
 import { Pets, Logout } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import APIService from '../../services/api';
-import SecondaryNavBar from './SecondaryNavBar';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
@@ -40,7 +39,6 @@ const NavBar: React.FC = () => {
           <span className="text-base font-bold">Logout</span>
         </button>
       </div>
-      <SecondaryNavBar />
     </nav>
   );
 };
