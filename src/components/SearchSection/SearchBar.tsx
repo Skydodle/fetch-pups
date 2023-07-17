@@ -6,6 +6,7 @@ import { useZipCodes } from '../../context/ZipCodesContext';
 
 const SearchBar: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
+  const [inputError, setInputError] = useState<string | null>(null);
   const { zipCodes, setZipCodes, removeZipCode } = useZipCodes();
 
   useEffect(() => {
@@ -17,7 +18,14 @@ const SearchBar: React.FC = () => {
   }, [inputValue, setZipCodes]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+    const newValue = event.target.value;
+    // Check if the value is numeric or is an empty string (for deletion)
+    if (/^\d*$/.test(newValue)) {
+      setInputValue(newValue);
+      setInputError(null); // Clear any previous error message
+    } else {
+      setInputError('Please enter only numeric values');
+    }
   };
 
   const handleZipCodeClick = (zipCode: string) => {
@@ -26,7 +34,13 @@ const SearchBar: React.FC = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="relative bg-gray-100 hover:bg-custom-blue rounded-md p-0.5">
+      <div
+        className={`relative rounded-md p-0.5 ${
+          inputError
+            ? 'bg-red-100 border border-red-500'
+            : 'bg-gray-100 hover:bg-custom-blue'
+        }`}
+      >
         <div className="flex justify-between w-full">
           <input
             className="pl-5 pr-10 py-1  bg-gray-100 rounded-md w-full focus:outline-none text-custom-blue"
@@ -41,6 +55,9 @@ const SearchBar: React.FC = () => {
             </IconButton>
           </div>
         </div>
+        {inputError && (
+          <p className="text-red-600 mt-2 text-xs italic">{inputError}</p>
+        )}
       </div>
       <div className="flex flex-wrap gap-2 mt-2">
         {zipCodes.map((zipCode) => (
