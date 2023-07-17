@@ -93,7 +93,10 @@ const Search: React.FC = () => {
       className="xl:px-32 lg:px-6 md:px-4 sm:px-2 lg:max-w-screen flex flex-col md:flex-row"
     >
       {/* Search Section */}
-      <div className="sm:w-full md:w-1/3 lg:w-1/4 xl:w-1/4 px-2">
+      <div
+        id="search-section"
+        className="sm:w-full md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 mt-10 py-4"
+      >
         <SearchBarSection />
         <FilterSection
           asc={asc}
@@ -110,11 +113,9 @@ const Search: React.FC = () => {
       </div>
       {/* End Search Section */}
       {/* Results Section */}
-      <Container
-        disableGutters
-        maxWidth="lg"
-        sx={{ p: 1, my: 5 }}
-        className="sm:w-full md:w-2/3 lg:w-3/4 xl:w-3/4 px-2"
+      <div
+        id="results-section"
+        className="sm:w-full md:w-2/3 lg:w-3/4 xl:w-3/4 px-2 py-4 my-10 mx-auto max-w-screen-lg"
       >
         <ResultsToolbar
           favoritesCount={favoritesCount}
@@ -135,7 +136,7 @@ const Search: React.FC = () => {
           page={page}
           setPage={setPage}
         />
-      </Container>
+      </div>
       {/* End Results Section */}
     </div>
   );
