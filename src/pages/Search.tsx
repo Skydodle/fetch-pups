@@ -7,8 +7,8 @@ import { FavoritesContext } from '../context/FavoritesContext';
 import { useZipCodes } from '../context/ZipCodesContext';
 
 import Container from '@mui/material/Container';
-import SearchBarSection from '../components/Filter/SearchBarSection';
-import FilterSection from '../components/Filter/FilterSection';
+import SearchBarSection from '../components/SearchSection/SearchBarSection';
+import FilterSection from '../components/SearchSection/FilterSection';
 import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
 import DogCardsSection from '../components/ResultsSection/DogCardsSection';
 import PaginationBar from '../components/PaginationBar';
