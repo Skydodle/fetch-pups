@@ -43,11 +43,15 @@ const LoginForm: React.FC = () => {
     <ThemeProvider theme={defaultTheme}>
       <Box
         sx={{
-          backgroundColor: 'white',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: 'rgba(255, 255, 255, 0.5)',
           padding: '1rem',
           borderRadius: '0.5rem',
           boxShadow: defaultTheme.shadows[10],
-          maxWidth: 370,
+          maxWidth: 300,
           minHeight: 450,
           p: 2,
           m: 'auto',
@@ -100,6 +104,7 @@ const LoginForm: React.FC = () => {
               autoComplete="name"
               autoFocus
               value={name}
+              sx={{ bgcolor: 'white' }}
               onChange={(e) => setName(e.target.value)}
             />
             <TextField
@@ -117,6 +122,7 @@ const LoginForm: React.FC = () => {
                   ? 'Invalid email format.'
                   : ''
               }
+              sx={{ bgcolor: 'white' }}
               onChange={(e) => setEmail(e.target.value)}
             />
             <Button
