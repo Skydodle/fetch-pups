@@ -26,7 +26,7 @@ const Search: React.FC = () => {
     'American Staffordshire Terrier',
     'Yorkshire Terrier',
   ]);
-  const [showFilter, setShowFilter] = useState<boolean>(true);
+  const [showFilter, setShowFilter] = useState<boolean>(false);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
   const [ageMin, ageMax] = ageRange as [number, number];
@@ -90,14 +90,14 @@ const Search: React.FC = () => {
   return (
     <div
       id="search-page-container"
-      className=" xl:px-32 lg:px-6 md:px-4 sm:px-2 lg:max-w-screen flex flex-row"
+      className="xl:px-32 lg:px-6 md:px-4 sm:px-2 lg:max-w-screen flex flex-col md:flex-row"
     >
       {/* Search Section */}
-      <div className=" sm:px-0 md:px-2 lg:px-4 xl:max-w-[23rem] lg:max-w-[18rem] md:max-w-[14rem] xs:max-w-[10rem] xl:min-w-[22rem]">
+      <div className="sm:w-full md:w-1/3 lg:w-1/4 xl:w-1/4 px-2">
         <SearchBarSection />
         <FilterSection
           asc={asc}
-          showComboBox={showFilter}
+          showFilter={showFilter}
           handleSort={toggleSortOrder}
           toggleShowFilter={toggleShowFilter}
           selectedBreeds={selectedBreeds}
@@ -110,7 +110,12 @@ const Search: React.FC = () => {
       </div>
       {/* End Search Section */}
       {/* Results Section */}
-      <Container disableGutters maxWidth="lg" sx={{ p: 1, my: 5 }}>
+      <Container
+        disableGutters
+        maxWidth="lg"
+        sx={{ p: 1, my: 5 }}
+        className="sm:w-full md:w-2/3 lg:w-3/4 xl:w-3/4 px-2"
+      >
         <ResultsToolbar
           favoritesCount={favoritesCount}
           showFavorite={showFavorite}
