@@ -11,6 +11,9 @@ module.exports = {
       backgroundSize: {
         '1400px': '1400px',
       },
+      screens: {
+        lg: '1160px',
+      },
     },
     fontFamily: {
       IBM: ['IBM Plex Sans Condensed', 'sans-serif'],
