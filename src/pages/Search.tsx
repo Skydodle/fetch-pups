@@ -6,7 +6,6 @@ import { fetchDogs } from '../services/dogApi';
 import { FavoritesContext } from '../context/FavoritesContext';
 import { useZipCodes } from '../context/ZipCodesContext';
 
-import Container from '@mui/material/Container';
 import SearchBarSection from '../components/SearchSection/SearchBarSection';
 import FilterSection from '../components/SearchSection/FilterSection';
 import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
