@@ -28,15 +28,15 @@ const NavBar: React.FC = () => {
           aria-label="Return to search"
           onClick={handleLogoClick}
         >
-          <Pets className="mr-2" style={{ color: 'inherit' }} />
-          <span className="text-lg font-bold">FetchPups</span>
+          <Pets style={{ color: 'inherit' }} />
+          <span className="text-2xl font-bold">FetchPups</span>
         </button>
         <button
           className="flex items-center text-white"
           aria-label="Logout"
           onClick={handleLogout}
         >
-          <Logout className="mr-2" />
+          <Logout className="mr" />
           <span className="text-base font-bold">Logout</span>
         </button>
       </div>
