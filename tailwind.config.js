@@ -30,7 +30,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      position: ['responsive'], // enabling the position variant for responsive design
+      position: ['responsive', 'sticky'], // enabling the position variant for responsive design
     },
   },
   plugins: [],
