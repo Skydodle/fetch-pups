@@ -22,7 +22,11 @@ const FilterContent: React.FC<FilterContentProps> = ({
   showFilter,
 }) => {
   return (
-    <div className={`md:flex ${showFilter ? 'block' : 'hidden'} flex-col py-2`}>
+    <div
+      className={`md:flex ${
+        showFilter ? 'block' : 'hidden'
+      } flex-col py-2 text-custom-blue`}
+    >
       <div className="flex flex-col py-1">
         <p className="text-sm mb-2 ">Select Dog Breed(s)</p>
         <div className="pl-1 pr-0">

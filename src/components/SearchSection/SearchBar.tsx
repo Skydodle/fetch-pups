@@ -29,7 +29,7 @@ const SearchBar: React.FC = () => {
       <div className="relative bg-gray-100 hover:bg-custom-blue rounded-md p-0.5">
         <div className="flex justify-between w-full">
           <input
-            className="pl-5 pr-10 py-1  bg-gray-100 rounded-md w-full focus:outline-none"
+            className="pl-5 pr-10 py-1  bg-gray-100 rounded-md w-full focus:outline-none text-custom-blue"
             placeholder="Enter a zip code(s)..."
             aria-label="search"
             value={inputValue}
@@ -45,7 +45,7 @@ const SearchBar: React.FC = () => {
       <div className="flex flex-wrap gap-2 mt-2">
         {zipCodes.map((zipCode) => (
           <button
-            className="border border-custom-blue text-custom-blue rounded-md px-2 py-1"
+            className="border border-custom-blue text-custom-blue rounded-md px-2 py-1 hover:bg-custom-blue hover:text-off-white"
             key={zipCode}
             onClick={() => handleZipCodeClick(zipCode)}
           >
