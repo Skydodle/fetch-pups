@@ -1,13 +1,12 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { Pets } from '@mui/icons-material';
+import { Pets, Logout } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import LogoutIcon from '@mui/icons-material/Logout';
 import APIService from '../../services/api';
 import SecondaryNavBar from './SecondaryNavBar';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
       await APIService.logout();
@@ -16,49 +15,33 @@ const NavBar: React.FC = () => {
       console.error('Logout Failed:', err);
     }
   };
-  const handleLogoClick = async () => {
+
+  const handleLogoClick = () => {
     navigate('/search');
   };
 
   return (
-    <AppBar position='sticky' component='nav'>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Button
-          variant='text'
-          color='inherit'
-          aria-label='Return to search'
+    <nav className="bg-custom-blue">
+      <div className="flex justify-between items-center p-4">
+        <button
+          className="flex items-center text-white"
+          aria-label="Return to search"
           onClick={handleLogoClick}
-          sx={{ textTransform: 'none' }}
         >
-          <Pets color='inherit' sx={{ pr: 0 }} />
-          <Typography
-            component='span'
-            variant='h5'
-            flexGrow={1}
-            sx={{ fontWeight: 700 }}
-          >
-            FetchPups
-          </Typography>
-        </Button>
-        <Button
-          variant='text'
-          color='inherit'
-          aria-label='Logout'
+          <Pets className="mr-2" style={{ color: 'inherit' }} />
+          <span className="text-lg font-bold">FetchPups</span>
+        </button>
+        <button
+          className="flex items-center text-white"
+          aria-label="Logout"
           onClick={handleLogout}
         >
-          <LogoutIcon />
-          <Typography
-            component='span'
-            variant='body1'
-            flexGrow={1}
-            sx={{ fontWeight: 700 }}
-          >
-            Logout
-          </Typography>
-        </Button>
-      </Toolbar>{' '}
+          <Logout className="mr-2" />
+          <span className="text-base font-bold">Logout</span>
+        </button>
+      </div>
       <SecondaryNavBar />
-    </AppBar>
+    </nav>
   );
 };
 
