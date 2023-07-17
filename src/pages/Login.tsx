@@ -1,28 +1,54 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import './Login.css'; // <-- Import here
+import loginbg1 from '../assets/loginbg1.jpeg';
+import loginbg2 from '../assets/loginbg2.jpeg';
+import loginbg3 from '../assets/loginbg3.jpeg';
+import loginbg4 from '../assets/loginbg4.jpeg';
 
 const Login: React.FC = () => {
   const matches = useMediaQuery('(max-width:600px)');
+
   return (
     <div
-      className=" min-h-screen flex flex-col items-center justify-start p-8 bg-center bg-cover"
-      style={{ backgroundImage: `url(${require('../assets/bg1.jpeg')})` }}
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
     >
-      <div className="flex flex-col items-center w-full h-full justify-start">
-        <h1 className="text-center text-white mt-12 font-semibold text-3xl">
-          Welcome to FetchPups
-        </h1>
-        <div
-          className={`${
-            matches
-              ? 'flex flex-col items-center mt-60'
-              : 'self-start mt-20 pl-20'
-          }`}
-        >
-          <LoginForm />
+      <Carousel
+        autoPlay
+        infiniteLoop
+        interval={6000}
+        transitionTime={6000}
+        showThumbs={false}
+        showStatus={false}
+        showIndicators={false}
+        showArrows={false}
+        stopOnHover={false}
+        dynamicHeight={false}
+        centerMode
+      >
+        <div>
+          <img src={loginbg1} alt="Background 1" />
         </div>
-      </div>
+        <div>
+          <img src={loginbg2} alt="Background 2" />
+        </div>
+        <div>
+          <img src={loginbg3} alt="Background 3" />
+        </div>
+        <div>
+          <img src={loginbg4} alt="Background 4" />
+        </div>
+      </Carousel>
+
+      <LoginForm />
     </div>
   );
 };
