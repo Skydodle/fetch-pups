@@ -52,7 +52,7 @@ const LoginForm: React.FC = () => {
           borderRadius: '0.5rem',
           boxShadow: defaultTheme.shadows[10],
           maxWidth: 300,
-          minHeight: 450,
+          minHeight: ['250px', '350px', '450px'],
           p: 2,
           m: 'auto',
         }}
