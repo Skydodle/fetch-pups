@@ -51,10 +51,8 @@ const LoginForm: React.FC = () => {
           padding: '1rem',
           borderRadius: '0.5rem',
           boxShadow: defaultTheme.shadows[10],
-          maxWidth: 300,
-          minHeight: ['250px', '350px', '450px'],
-          p: 2,
-          m: 'auto',
+          maxWidth: 280,
+          minHeight: ['250px', '350px', '400px'],
         }}
       >
         <Box
@@ -65,34 +63,26 @@ const LoginForm: React.FC = () => {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LockOutlinedIcon fontSize="small" />
           </Avatar>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Typography component="h1" variant="h6">
-              Sign in to
-            </Typography>
+          <Typography component="h1" variant="h6">
+            Sign in to
+          </Typography>
 
-            <Typography
-              component="span"
-              variant="h5"
-              color="primary"
-              sx={{ fontWeight: 700 }}
-            >
-              <Pets />
-              FetchPups
-            </Typography>
-          </Box>
+          <Typography
+            component="span"
+            variant="h5"
+            color="primary"
+            sx={{ fontWeight: 700 }}
+          >
+            <Pets />
+            FetchPups
+          </Typography>
           <Box
             component="form"
             onSubmit={handleLogin}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{ mt: 1, width: '100%' }} // Ensure the form takes full width of its parent
           >
             <TextField
               margin="normal"
@@ -129,8 +119,7 @@ const LoginForm: React.FC = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 6, mb: 2 }}
-              role="button"
+              sx={{ mt: 2, mb: 2 }}
             >
               Sign In
             </Button>
