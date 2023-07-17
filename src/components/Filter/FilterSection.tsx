@@ -1,12 +1,11 @@
 import React from 'react';
 import { ArrowDownward, ArrowUpward } from '@mui/icons-material';
 import TuneIcon from '@mui/icons-material/Tune';
-import ComboBox from './ComboBox';
-import Slider from '@mui/material/Slider';
+import FilterContent from './FilterContent';
 
 interface FilterProps {
   asc: boolean;
-  showComboBox: boolean;
+  showFilter: boolean;
   selectedBreeds: string[];
   setSelectedBreeds: React.Dispatch<React.SetStateAction<string[]>>;
   ageRange: number | number[];
@@ -19,7 +18,7 @@ interface FilterProps {
 
 const FilterSection: React.FC<FilterProps> = ({
   asc,
-  showComboBox,
+  showFilter,
   selectedBreeds,
   setSelectedBreeds,
   ageRange,
@@ -34,7 +33,7 @@ const FilterSection: React.FC<FilterProps> = ({
       <h1 className="text-primary text-base mb-4 font-bold">
         Search By Filter
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+      <div className="grid grid-cols-2 gap-0">
         <div className="col-span-1 md:col-span-1 lg:col-span-1">
           <button
             onClick={toggleShowFilter}
@@ -57,33 +56,15 @@ const FilterSection: React.FC<FilterProps> = ({
           </button>
         </div>
       </div>
-      <div className="flex flex-col py-2">
-        <div className="flex flex-col py-1">
-          <p className="text-sm mb-2 ">Select Dog Breed(s)</p>
-          <div className="pl-1 pr-0">
-            <ComboBox
-              selectedBreeds={selectedBreeds}
-              setSelectedBreeds={setSelectedBreeds}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col py-2">
-          <p className="text-sm mb-2 ">Select Age Range:</p>
-          <div className="pl-3 pr-0">
-            <p className="text-sm mb-2">
-              {ageMin} - {ageMax} years old
-            </p>
-            <Slider
-              getAriaLabel={() => 'Dog Age Range'}
-              value={ageRange}
-              onChange={handleAgeRangeSlider}
-              max={20}
-              className="max-w-[14rem]"
-              size="medium"
-            />
-          </div>
-        </div>
-      </div>
+      <FilterContent
+        selectedBreeds={selectedBreeds}
+        setSelectedBreeds={setSelectedBreeds}
+        ageRange={ageRange}
+        handleAgeRangeSlider={handleAgeRangeSlider}
+        ageMin={ageMin}
+        ageMax={ageMax}
+        showFilter={showFilter}
+      />
     </div>
   );
 };
