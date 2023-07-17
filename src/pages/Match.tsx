@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import APIService from '../services/api';
 import { Dog } from '../services/api';
-import { Box, CircularProgress, Typography, Grid } from '@mui/material';
 import DogCard from '../components/ResultsSection/DogCard';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
@@ -15,7 +14,6 @@ const Match: React.FC = () => {
   const [dog, setDog] = useState<Dog | null>(null);
   const { width, height } = useWindowSize();
   const location = useLocation();
-
   const { favorites, showFavorite, setShowFavorite } =
     useContext(FavoritesContext);
 
@@ -39,65 +37,24 @@ const Match: React.FC = () => {
     fetchMatchDog();
   }, [location]);
 
-  // If dog is null, display a loading spinner
-  if (dog === null) {
-    return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '80vh',
-          paddingTop: 15,
-          width: '100%',
-        }}
-      >
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  // Once dog is not null, display DogCard
   return (
     <>
       <Confetti width={width} height={height} />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '80vh',
-          paddingTop: 2,
-          width: '100%',
-        }}
-      >
-        {' '}
-        <Typography
-          variant='h2'
-          color='primary'
-          gutterBottom
-          sx={{ pb: 5, fontWeight: 700 }}
-        >
+      <div className="flex flex-col justify-center items-center max-h-screen py-8 overflow-hidden">
+        <h1 className="text-vibrant-orange font-syne p-10 font-bold text-5xl text-center sm:text-5xl">
           THE PERFECT MATCH!
-        </Typography>
+        </h1>
         {dog && <DogCard dog={dog} />}
-        <Grid container spacing={2} sx={{ pt: 4, justifyContent: 'center' }}>
-          <Grid item>
-            <FavoritesButton
-              favoritesCount={favorites.length}
-              showFavorite={showFavorite}
-              toggleShowFavorite={toggleShowFavorite}
-            />
-          </Grid>
-          <Grid item>
-            <MatchButton />
-          </Grid>
-          <Grid item>
-            <SearchButton />
-          </Grid>
-        </Grid>
-      </Box>
+        <div className="flex space-x-4 justify-center pt-16">
+          <FavoritesButton
+            favoritesCount={favorites.length}
+            showFavorite={showFavorite}
+            toggleShowFavorite={toggleShowFavorite}
+          />
+          <MatchButton />
+          <SearchButton />
+        </div>
+      </div>
     </>
   );
 };
