@@ -17,6 +17,9 @@ module.exports = {
       minHeight: {
         'screen-minus-nav': 'calc(100vh - 112px)',
       },
+      height: {
+        'screen-minus-nav': 'calc(100vh - 112px)',
+      },
     },
     fontFamily: {
       IBM: ['IBM Plex Sans Condensed', 'sans-serif'],
