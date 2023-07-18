@@ -32,8 +32,8 @@ The demo live site is hoste on Github Pages [here](https://skydodle.github.io/fe
 1. To get started you will need to enter a name and an email at the Login page.
 2. Once you log in you can start searching thru the database.
    - The default filters are with breeds American Staffordshire Terrier & Yorkshire Terrier. You can take out those breeds from the filter to view all dogs, or add new breeds to the filter.
-   - The default sort is by breed alphbatically ascending, click on Sort button to sort by descending.
-4. You can favorite dogs that you liked, they will be kept at the favorites list on top search tool bar.
+   - The default sort is by breed alphabetically ascending, click on Sort button to switch to descending.
+4. You can add dogs that you liked to favorites. Your personalized favorites can be access in the search tool bar aobve the search results.
 5. Once you have 1 or more favorites, click on the Match button and a dog match will be generated from your favorited list.
 
   ### Prerequisites
