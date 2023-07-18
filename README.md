@@ -11,6 +11,7 @@
 ## Overview
 
 `fetch-pups` is a web application to help dog lovers search through a database of sheltered dogs to find the perfect match for adoption.
+![](https://media.giphy.com/media/2sXHaogN0rtyuN1j4t/giphy.gif)
 
   ### Tech Stack
   - [React](https://react.dev/) 
@@ -57,10 +58,10 @@ The demo live site is hoste on Github Pages [here](https://skydodle.github.io/fe
 
 List the main features of your application.
 
-- Search by zip code: takes up to 100 zip codes and show all dogs that match the zip codes.
-- Search by filters: breed, age range (set minimum & maximum).
-- Favorites list: you can save each dog you like to your personal favorites list, this list is also persisted with your account so that you can continue to access & modify it on your next login.
-- Match Generator: one perfect match dog will be generated from your favorites list.
+- Search by zip code 🔍 : takes up to 100 zip codes and show all dogs that match the zip codes.
+- Search by filters 🔍 : breed, age range (set minimum & maximum).
+- Favorites list 💟 : you can save each dog you like to your personal favorites list, this list is also persisted with your device so that you can continue to access & modify it on your next login.
+- Match Generator 🐕 : one perfect match dog will be generated from your favorites list.
 
 ## Tests
 
