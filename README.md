@@ -11,7 +11,8 @@
 ## Overview
 
 `fetch-pups` is a web application to help dog lovers search through a database of sheltered dogs to find the perfect match for adoption.
-![](https://media.giphy.com/media/2sXHaogN0rtyuN1j4t/giphy.gif)
+
+![](https://media.giphy.com/media/2sXHaogN0rtyuN1j4t/giphy-downsized-large.gif)
 
   ### Tech Stack
   - [React](https://react.dev/) 
