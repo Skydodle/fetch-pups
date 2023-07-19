@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# 🐾 Fetch-Pups 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Features](#features)
+- [Tests](#tests)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+`fetch-pups` is a web application to help dog lovers search through a database of sheltered dogs to find the perfect match for adoption.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![](https://media.giphy.com/media/2sXHaogN0rtyuN1j4t/giphy-downsized-large.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  ### Tech Stack
+  - [React](https://react.dev/) 
+  - [Typescript](https://www.typescriptlang.org/)
+  - [Tailwind CSS](https://tailwindcss.com/) & [MUI](https://mui.com/)
+  - [Github Pages](https://pages.github.com/)
 
-### `npm test`
+  ### Packages
+  - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+  - [axios](https://axios-http.com/docs/intro)
+  - [react-responsive-carousel](https://www.npmjs.com/package/react-responsive-carousel)
+  - [react-confetti](https://www.npmjs.com/package/react-confetti)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+The demo live site is hoste on Github Pages [here](https://skydodle.github.io/fetch-pups/).
+1. To get started you will need to enter a name and an email at the Login page.
+2. Once you log in you can start searching thru the database.
+   - The default filters are with breeds American Staffordshire Terrier & Yorkshire Terrier. You can take out those breeds from the filter to view all dogs, or add new breeds to the filter.
+   - The default sort is by breed alphabetically ascending, click on Sort button to switch to descending.
+4. You can add dogs that you liked to favorites. Your personalized favorites can be access in the search tool bar aobve the search results.
+5. Once you have 1 or more favorites, click on the Match button and a dog match will be generated from your favorited list.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  What things you need to install the software and how to install them:
+  - A good IDE/ code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
+  - Have [Git](https://git-scm.com/downloads) installed on your device globally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. Clone the repo & install with npm
+   ```bash
+   git clone https://github.com/Skydodle/fetch-pups.git
+   cd fetch-pups
+   npm install
+   ```
+2. Start the development server
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+List the main features of your application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Search by zip code 🔍 : takes up to 100 zip codes and show all dogs that match the zip codes.
+- Search by filters 🔍 : breed, age range (set minimum & maximum).
+- Favorites list 💟 : you can save each dog you like to your personal favorites list, this list is also persisted with your device so that you can continue to access & modify it on your next login.
+- Match Generator 🐕 : one perfect match dog will be generated from your favorites list.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Tests
 
-## Learn More
+To run tests:
+```bash
+npm test
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
