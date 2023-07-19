@@ -67,7 +67,7 @@ apiInstance.interceptors.response.use(
       }
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 // Define the API service
@@ -76,7 +76,7 @@ const APIService = {
     try {
       localStorage.setItem('authData', JSON.stringify(data));
       const response = await apiInstance.post(`/auth/login`, data);
-      console.log('auth response:', response.status);
+      // console.log('auth response:', response.status);
       return response;
     } catch (error) {
       console.error('An error occurred while making the request: ', error);
@@ -87,7 +87,7 @@ const APIService = {
   getDogsIds: async (params: QueryParams): Promise<AxiosResponse<Search>> => {
     try {
       const response = await apiInstance.get(`/dogs/search`, { params });
-      console.log('getDogsIds response:', response.status);
+      // console.log('getDogsIds response:', response.status);
       return response;
     } catch (error) {
       console.log(error);
@@ -102,8 +102,7 @@ const APIService = {
           'Content-Type': 'application/json',
         },
       });
-
-      console.log('getDogs status:', response.status);
+      // console.log('getDogs status:', response.status);
       return response;
     } catch (error) {
       console.log(error);
@@ -115,7 +114,6 @@ const APIService = {
     try {
       await apiInstance.post('/auth/logout');
       console.log('Logout successful');
-      // localStorage.removeItem('authData'); // clear the loginData from localStorage on logout
     } catch (error) {
       console.error('An error occurred while logging out: ', error);
       throw error;
@@ -129,7 +127,7 @@ const APIService = {
           'Content-Type': 'application/json',
         },
       });
-      console.log('match:', response.data, response.status);
+      // console.log('match:', response.data, response.status);
       return response;
     } catch (error) {
       console.log(error);
