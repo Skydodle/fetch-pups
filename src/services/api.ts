@@ -112,6 +112,10 @@ const APIService = {
 
   logout: async (): Promise<void> => {
     try {
+      // Clear the user's login data from local storage
+      localStorage.removeItem('authData');
+
+      // Make the logout API call
       await apiInstance.post('/auth/logout');
       console.log('Logout successful');
     } catch (error) {
