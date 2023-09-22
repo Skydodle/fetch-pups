@@ -17,7 +17,7 @@
   ### Tech Stack
   - [React](https://react.dev/) 
   - [Typescript](https://www.typescriptlang.org/)
-  - [Tailwind CSS](https://tailwindcss.com/) & [MUI](https://mui.com/)
+  - [Tailwind CSS](https://tailwindcss.com/) & [MUI Components](https://mui.com/)
   - [Github Pages](https://pages.github.com/)
 
   ### Packages
@@ -28,6 +28,7 @@
 
 ## Getting Started
 
+### Demo site usage
 The demo live site is hoste on Github Pages [here](https://skydodle.github.io/fetch-pups/).
 1. To get started just enter any name and any email (It can be made up as long as email is in correct format).
 2. Once you log in you can start searching thru the database.
@@ -57,7 +58,7 @@ The demo live site is hoste on Github Pages [here](https://skydodle.github.io/fe
 
 ## Features
 
-List the main features of your application.
+List of main features:
 
 - Search by zip code 🔍 : takes up to 100 zip codes and show all dogs that match the zip codes.
 - Search by filters 🔍 : breed, age range (set minimum & maximum).
