@@ -89,7 +89,8 @@ const LoginForm: React.FC = () => {
               required
               fullWidth
               id="name"
-              label="Name"
+              label="Enter Any Name"
+              placeholder="Enter Any Name"
               name="name"
               autoComplete="name"
               autoFocus
@@ -102,7 +103,8 @@ const LoginForm: React.FC = () => {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Enter Any Email"
+              placeholder="Enter Any Email"
               name="email"
               autoComplete="email"
               value={email}
