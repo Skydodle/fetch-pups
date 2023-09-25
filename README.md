@@ -28,16 +28,16 @@
 
 ## Getting Started
 
-### Demo site usage
-The demo live site is hoste on Github Pages [here](https://skydodle.github.io/fetch-pups/).
-1. To get started just enter any name and any email (It can be made up as long as email is in correct format).
+### Demo site login & usage
+The demo live site is hosted on Github Pages [here](https://skydodle.github.io/fetch-pups/).
+1. To get started at login page just enter **any name you'd like** and **any made-up email** (It can be made up as long as input is in correct email format).
 2. Once you log in you can start searching thru the database.
-   - The default filters are with breeds American Staffordshire Terrier & Yorkshire Terrier. You can take out those breeds from the filter to view all dogs, or add new breeds to the filter.
+   - The default filters are with breeds American Staffordshire Terrier & Yorkshire Terrier. You can delete those default breeds from the filter to view all breeds, or add new breeds to the filter.
    - The default sort is by breed alphabetically ascending, click on Sort button to switch to descending.
 4. You can add dogs that you liked to favorites. Your personalized favorites can be access in the search tool bar aobve the search results.
 5. Once you have 1 or more favorites, click on the Match button and a dog match will be generated from your favorited list.
 
-  ### Prerequisites
+  ### Development Prerequisites
 
   What things you need to install the software and how to install them:
   - A good IDE/ code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
