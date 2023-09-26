@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { FavoritesProvider } from '../context/FavoritesContext';
 import { ZipCodesProvider } from '../context/ZipCodesContext';
 
@@ -11,6 +11,12 @@ import Match from './Match';
 import SecondaryNavBar from '../components/Navigation/SecondaryNavBar';
 
 const MainLayout: React.FC = () => {
+  // Authentication check function
+  const isAuthenticated = () => {
+    const authData = localStorage.getItem('authData');
+    return !!authData; // Replace this with your actual authentication logic
+  };
+
   return (
     <FavoritesProvider>
       <ZipCodesProvider>
@@ -19,12 +25,16 @@ const MainLayout: React.FC = () => {
           <SecondaryNavBar />
         </header>
         <main className="flex flex-col bg-off-white font-lexend px-0 min-h-screen-minus-nav overflow-auto">
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/match" element={<Match />} />
-            <Route path="/tips" element={<DogCareTips />} />
-          </Routes>
+          {isAuthenticated() ? (
+            <Routes>
+              <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/match" element={<Match />} />
+              <Route path="/tips" element={<DogCareTips />} />
+            </Routes>
+          ) : (
+            <Navigate to="/login" />
+          )}
         </main>
       </ZipCodesProvider>
     </FavoritesProvider>
