@@ -40,7 +40,7 @@ The demo live site is hosted on Github Pages [here](https://skydodle.github.io/f
   ### Development Prerequisites
 
   > [!IMPORTANT]<br>
-  > This repository is mainly the showcase my frontend project on the live site.
+  > This repository is mainly for showcasing my frontend project on the live site.
   > The API that I used to get data is a private API that may have usage limits and is not for public development.
   > Therefore, the API url is encrypted in my local env file and do not exist in this repository.
   > If you are really interested in building an app with it, DM me on LinkedIn.
