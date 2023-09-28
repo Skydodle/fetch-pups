@@ -1,5 +1,5 @@
 # 🐾 Fetch-Pups 
-## Visit live site: https://skydodle.github.io/fetch-pups/
+### Visit live site: https://skydodle.github.io/fetch-pups/
 ## Table of Contents
 - [Overview](#overview)
 - [Getting Started](#getting-started)
