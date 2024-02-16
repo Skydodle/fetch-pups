@@ -89,12 +89,12 @@ const Search: React.FC = () => {
   return (
     <div
       id="search-page-container"
-      className="xl:w-3/4 mx-auto flex flex-col md:flex-row justify-center"
+      className="sm:w-full md:w-2/3 xl:w-3/4 mx-auto flex flex-col md:flex-row justify-center"
     >
       {/* Search Section */}
       <div
         id="search-section"
-        className="sm:w-full md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 mt-10 py-4"
+        className="sm:w-full md:w-1/3 lg:w-1/4 px-4 mt-28 py-4"
       >
         <SearchBarSection />
         <FilterSection
