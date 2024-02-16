@@ -20,7 +20,7 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
   return (
     <div
       id="results-tool-bar"
-      className="flex justify-between px-2 mb-2 bg-gray-200 rounded-md ml-1"
+      className="flex justify-between px-2 mb-2 rounded-md ml-1"
     >
       <div className=" pl-2">
         <div className="flex flex-wrap">
