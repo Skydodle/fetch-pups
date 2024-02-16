@@ -2,7 +2,7 @@
   "name": "fetch-pups",
   "version": "0.1.1",
   "private": false,
-  "homepage": "https://skydodle.github.io/",
+  "homepage": "http://skydodle.github.io/",
   "prettier.requireConfig": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
