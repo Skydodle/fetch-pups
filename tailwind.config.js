@@ -11,9 +11,6 @@ module.exports = {
       backgroundSize: {
         '1400px': '1400px',
       },
-      screens: {
-        lg: '1160px',
-      },
       minHeight: {
         'screen-minus-nav': 'calc(100vh - 112px)',
       },
