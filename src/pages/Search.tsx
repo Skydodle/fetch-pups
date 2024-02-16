@@ -89,7 +89,7 @@ const Search: React.FC = () => {
   return (
     <div
       id="search-page-container"
-      className="xl:px-32 lg:px-6 md:px-4 sm:px-2 lg:max-w-screen flex flex-col md:flex-row"
+      className="xl:w-3/4 mx-auto flex flex-col md:flex-row"
     >
       {/* Search Section */}
       <div
@@ -114,7 +114,7 @@ const Search: React.FC = () => {
       {/* Results Section */}
       <div
         id="results-section"
-        className="sm:w-full md:w-2/3 lg:w-3/4 xl:w-3/4 px-2 py-4 my-10 mx-auto max-w-screen-lg"
+        className="sm:w-full md:w-2/3 lg:w-3/4 xl:w-3/4 px-2 py-4 my-10"
       >
         <ResultsToolbar
           favoritesCount={favoritesCount}
