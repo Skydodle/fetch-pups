@@ -1,6 +1,5 @@
 import React from 'react';
-import { Stack, Container, styled } from '@mui/material';
-import Pagination from '@mui/material/Pagination';
+import { Stack, Container, Pagination, styled } from '@mui/material';
 
 const StyledPagination = styled(Pagination)(({ theme }) => ({
   '& button': {
@@ -25,16 +24,16 @@ const PaginationBar: React.FC<PaginationBarProps> = ({
   setPage,
 }) => {
   return (
-    <Container maxWidth='md' sx={{ my: 5, justifyContent: 'center' }}>
-      <Stack spacing={2} direction='row' justifyContent='center'>
+    <Container maxWidth="md" sx={{ my: 5, justifyContent: 'center' }}>
+      <Stack spacing={2} direction="row" justifyContent="center">
         <StyledPagination
           count={Math.ceil(totalResults / 9)}
           page={page}
-          size='large'
+          size="large"
           onChange={(event, newPage) => setPage(newPage)}
-          color='primary'
-          variant='outlined'
-          shape='rounded'
+          color="primary"
+          variant="outlined"
+          shape="rounded"
           siblingCount={2}
           defaultPage={1}
           showFirstButton={true}
