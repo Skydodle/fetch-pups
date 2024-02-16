@@ -44,7 +44,7 @@ const SearchBar: React.FC = () => {
         <div className="flex justify-between w-full">
           <input
             className="pl-5 pr-10 py-1  bg-gray-100 rounded-md w-full focus:outline-none text-custom-blue"
-            placeholder="Enter a zip code(s)..."
+            placeholder="Enter zip code(s)..."
             aria-label="search"
             value={inputValue}
             onChange={handleInputChange}
