@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, useCallback } from 'react';
 import APIService from '../services/api';
 import { Dog } from '../services/api';
 import DogCard from '../components/ResultsSection/DogCard';
@@ -17,7 +17,7 @@ const Match: React.FC = () => {
   const { favorites, showFavorite, setShowFavorite } =
     useContext(FavoritesContext);
 
-  const fetchMatchDog = async () => {
+  const fetchMatchDog = useCallback(async () => {
     try {
       const response = await APIService.match(favorites);
       const matchedDogId = response.data.match;
@@ -27,15 +27,17 @@ const Match: React.FC = () => {
     } catch (err) {
       console.error(err);
     }
-  };
+  }, [favorites]);
 
   const toggleShowFavorite = () => {
     setShowFavorite((prev) => !prev);
   };
 
+  // New dog is fetch from favorites whenever location or favorites changes
+  // The match button will go to location /match route again which triggers a rerender on a new dog
   useEffect(() => {
     fetchMatchDog();
-  }, [location]);
+  }, [location, fetchMatchDog]);
 
   return (
     <>
