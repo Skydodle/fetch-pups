@@ -76,7 +76,7 @@ const APIService = {
     try {
       localStorage.setItem('authData', JSON.stringify(data));
       const response = await apiInstance.post(`/auth/login`, data);
-      // console.log('auth response:', response.status);
+      console.log(`Login successful. Welcome, ${data.name}!`);
       return response;
     } catch (error) {
       console.error('An error occurred while making the request: ', error);
