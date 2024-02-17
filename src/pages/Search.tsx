@@ -97,7 +97,7 @@ const Search: React.FC = () => {
       {/* Search Section */}
       <div
         id="search-section"
-        className="sm:w-full md:w-full lg:w-1/4 px-4 mt-28 py-4"
+        className="sm:w-full md:w-full lg:w-1/4 px-4 sm:mt-10 lg:mt-28 py-4"
       >
         <SearchBarSection />
         <FilterSection
