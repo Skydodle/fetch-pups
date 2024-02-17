@@ -2,13 +2,25 @@ import React from 'react';
 import { Stack, Container, Pagination, styled } from '@mui/material';
 
 const StyledPagination = styled(Pagination)(({ theme }) => ({
-  '& button': {
+  '& .MuiPaginationItem-root': {
+    // Targeting all pagination buttons
+    color: theme.palette.text.primary, // Default text color
     '&:hover': {
-      backgroundColor: '#1e7dd9',
-      color: 'white',
-      border: 'none',
-      fontWeight: theme.typography.fontWeightBold,
+      backgroundColor: '#1e7dd9', // Custom hover background color
+      color: 'white', // Hover text color
     },
+  },
+  '& .Mui-selected': {
+    // Styles for selected page button
+    backgroundColor: '#1e7dd9', // Selected background color
+    color: 'white', // Selected text color
+    '&:hover': {
+      backgroundColor: theme.palette.primary.dark, // Darker on hover
+    },
+  },
+  '& .MuiPaginationItem-ellipsis': {
+    // Optional: Style ellipsis
+    color: theme.palette.text.secondary, // Adjust if needed
   },
 }));
 
@@ -24,7 +36,7 @@ const PaginationBar: React.FC<PaginationBarProps> = ({
   setPage,
 }) => {
   return (
-    <Container maxWidth="md" sx={{ my: 5, justifyContent: 'center' }}>
+    <Container maxWidth="md" sx={{ my: 5 }}>
       <Stack spacing={2} direction="row" justifyContent="center">
         <StyledPagination
           count={Math.floor(totalResults / 9)}
@@ -32,7 +44,7 @@ const PaginationBar: React.FC<PaginationBarProps> = ({
           size="large"
           onChange={(event, newPage) => setPage(newPage)}
           color="primary"
-          variant="outlined"
+          variant="text"
           shape="rounded"
           siblingCount={2}
           defaultPage={1}
