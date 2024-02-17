@@ -92,12 +92,12 @@ const Search: React.FC = () => {
   return (
     <div
       id="search-page-container"
-      className="sm:w-full md:w-2/3 xl:w-3/4 mx-auto flex flex-col md:flex-row justify-center"
+      className="sm:w-full md:w-2/3 xl:w-3/4 mx-auto flex flex-col lg:flex-row justify-center"
     >
       {/* Search Section */}
       <div
         id="search-section"
-        className="sm:w-full md:w-1/3 lg:w-1/4 px-4 mt-28 py-4"
+        className="sm:w-full md:w-full lg:w-1/4 px-4 mt-28 py-4"
       >
         <SearchBarSection />
         <FilterSection
@@ -117,7 +117,7 @@ const Search: React.FC = () => {
       {/* Results Section */}
       <div
         id="results-section"
-        className="sm:w-full md:w-2/3 lg:w-3/4 2xl:w-3/5 px-2 py-4 my-10"
+        className="sm:w-full md:w-full lg:w-3/4 xl: w-4/5 2xl:w-3/5 px-2 py-4 my-10"
       >
         <ResultsToolbar
           favoritesCount={favoritesCount}
