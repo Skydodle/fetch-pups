@@ -29,6 +29,8 @@ const Search: React.FC = () => {
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
   const [ageMin, ageMax] = ageRange as [number, number];
+  const [noResultsNotification, setNoResultsNotification] =
+    useState<string>('');
 
   // Fetch dogs data from the API based on the current search criteria
   // useCallback hook memorizes the fetchData function. The function is only recreated if one of its dependencies changes
@@ -44,6 +46,13 @@ const Search: React.FC = () => {
         ageRange as number[],
         zipCodes,
       );
+      if (totalResults === 0) {
+        setNoResultsNotification(
+          'No dogs found for the entered zip code(s). Please try different zip codes.',
+        );
+      } else {
+        setNoResultsNotification(''); // Clear notification if results exist
+      }
       setDogs(dogs);
       setTotalResults(totalResults);
       console.log('Data fetched successfully!');
@@ -126,12 +135,18 @@ const Search: React.FC = () => {
           totalResults={totalResults}
         />
         {error && <p>{error}</p>}
+
         {/* Dog Cards Section */}
         <DogCardsSection
           dogs={dogs}
           showFavorite={showFavorite}
           favorites={favorites}
         />
+        {noResultsNotification && (
+          <p className="text-center text-red-500 my-28">
+            {noResultsNotification}
+          </p>
+        )}
         {/*End Dog Cards Section*/}
         <PaginationBar
           totalResults={totalResults}
