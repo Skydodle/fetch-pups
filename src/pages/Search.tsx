@@ -46,7 +46,7 @@ const Search: React.FC = () => {
       );
       setDogs(dogs);
       setTotalResults(totalResults);
-      console.log('Data fetched succesfully!');
+      console.log('Data fetched successfully!');
     } catch (err) {
       // Handle errors
       if (isAxiosError(err) && err.response?.status === 400) {
