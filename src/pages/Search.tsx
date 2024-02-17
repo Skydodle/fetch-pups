@@ -31,6 +31,7 @@ const Search: React.FC = () => {
   const [ageMin, ageMax] = ageRange as [number, number];
 
   // Fetch dogs data from the API based on the current search criteria
+  // useCallback hook memorizes the fetchData function. The function is only recreated if one of its dependencies changes
   const fetchData = useCallback(async () => {
     try {
       const { dogs, totalResults } = await fetchDogs(
