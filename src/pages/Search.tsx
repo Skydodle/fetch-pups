@@ -18,7 +18,7 @@ const Search: React.FC = () => {
   const { zipCodes } = useZipCodes();
 
   const [dogs, setDogs] = useState<Dog[]>([]);
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
   const [error, setError] = useState<string>('');
   const [asc, setAsc] = useState<boolean>(true);
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
