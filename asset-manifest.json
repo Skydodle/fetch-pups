@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "https://skydodle.github.io/fetch-pups/static/css/main.800075d3.css",
-    "main.js": "https://skydodle.github.io/fetch-pups/static/js/main.7f81a04f.js",
-    "static/js/787.376da782.chunk.js": "https://skydodle.github.io/fetch-pups/static/js/787.376da782.chunk.js",
+    "main.css": "https://skydodle.github.io/fetch-pups/static/css/main.8aef45f0.css",
+    "main.js": "https://skydodle.github.io/fetch-pups/static/js/main.72488999.js",
+    "static/js/787.a5383ba1.chunk.js": "https://skydodle.github.io/fetch-pups/static/js/787.a5383ba1.chunk.js",
     "static/media/bg2.jpeg": "https://skydodle.github.io/fetch-pups/static/media/bg2.eb6fd9a9334d7bb41c03.jpeg",
     "static/media/bg5.jpeg": "https://skydodle.github.io/fetch-pups/static/media/bg5.bcc0a25ffcd6334d63b1.jpeg",
     "static/media/loginbg1.jpeg": "https://skydodle.github.io/fetch-pups/static/media/loginbg1.24983dd30661dbe33cf0.jpeg",
@@ -14,12 +14,12 @@
     "static/media/tips1.jpeg": "https://skydodle.github.io/fetch-pups/static/media/tips1.1bad5b425df26c99a747.jpeg",
     "static/media/tips2.jpeg": "https://skydodle.github.io/fetch-pups/static/media/tips2.6c7b00fc19583d9a5fee.jpeg",
     "index.html": "https://skydodle.github.io/fetch-pups/index.html",
-    "main.800075d3.css.map": "https://skydodle.github.io/fetch-pups/static/css/main.800075d3.css.map",
-    "main.7f81a04f.js.map": "https://skydodle.github.io/fetch-pups/static/js/main.7f81a04f.js.map",
-    "787.376da782.chunk.js.map": "https://skydodle.github.io/fetch-pups/static/js/787.376da782.chunk.js.map"
+    "main.8aef45f0.css.map": "https://skydodle.github.io/fetch-pups/static/css/main.8aef45f0.css.map",
+    "main.72488999.js.map": "https://skydodle.github.io/fetch-pups/static/js/main.72488999.js.map",
+    "787.a5383ba1.chunk.js.map": "https://skydodle.github.io/fetch-pups/static/js/787.a5383ba1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.800075d3.css",
-    "static/js/main.7f81a04f.js"
+    "static/css/main.8aef45f0.css",
+    "static/js/main.72488999.js"
   ]
 }
