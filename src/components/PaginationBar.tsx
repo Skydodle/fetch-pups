@@ -27,7 +27,7 @@ const PaginationBar: React.FC<PaginationBarProps> = ({
     <Container maxWidth="md" sx={{ my: 5, justifyContent: 'center' }}>
       <Stack spacing={2} direction="row" justifyContent="center">
         <StyledPagination
-          count={Math.ceil(totalResults / 9)}
+          count={Math.floor(totalResults / 9)}
           page={page}
           size="large"
           onChange={(event, newPage) => setPage(newPage)}
