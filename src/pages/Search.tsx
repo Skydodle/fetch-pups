@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { isAxiosError } from 'axios';
 import { Dog } from '../services/api';
 import { fetchDogs } from '../services/dogApi';
@@ -30,12 +30,8 @@ const Search: React.FC = () => {
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
   const [ageMin, ageMax] = ageRange as [number, number];
 
-  useEffect(() => {
-    fetchData();
-  }, [page, asc, selectedBreeds, ageRange, showFavorite, zipCodes]);
-
   // Fetch dogs data from the API based on the current search criteria
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const { dogs, totalResults } = await fetchDogs(
         showFavorite,
@@ -61,7 +57,11 @@ const Search: React.FC = () => {
       }
       console.error(err);
     }
-  };
+  }, [showFavorite, favorites, asc, page, selectedBreeds, ageRange, zipCodes]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   // Handle age range slider change
   const handleAgeRangeSlider = (event: any, newValue: number | number[]) => {
