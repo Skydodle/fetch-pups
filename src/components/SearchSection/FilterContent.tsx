@@ -22,7 +22,7 @@ const FilterContent: React.FC<FilterContentProps> = ({
   return (
     <div className={`md:flex flex-col py-2 text-custom-blue`}>
       <div className="flex flex-col py-2">
-        <p className="text-sm mb-3 ">Select Dog Breed(s)</p>
+        <p className="text-sm mb-3 ">Select Dog Breed(s):</p>
         <div className="pl-1 pr-0">
           <ComboBox
             selectedBreeds={selectedBreeds}
