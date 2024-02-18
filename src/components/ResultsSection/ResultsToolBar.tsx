@@ -4,7 +4,6 @@ import ClearFavoritesButton from '../common/Buttons/ClearFavoritesButton';
 import MatchButton from '../common/Buttons/MatchButton';
 import SearchButton from '../common/Buttons/SearchButton';
 import { ArrowDownward, ArrowUpward } from '@mui/icons-material';
-import TuneIcon from '@mui/icons-material/Tune';
 
 type ResultsToolbarProps = {
   favoritesCount: number;
