@@ -26,7 +26,6 @@ const Search: React.FC = () => {
     'American Staffordshire Terrier',
     'Yorkshire Terrier',
   ]);
-  const [showFilter, setShowFilter] = useState<boolean>(false);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
   const [ageMin, ageMax] = ageRange as [number, number];
@@ -88,11 +87,6 @@ const Search: React.FC = () => {
     setAgeRange(newValue as number[]);
   };
 
-  // Toggle show/hide filter section
-  const toggleShowFilter = () => {
-    setShowFilter((prevShowFilter) => !prevShowFilter);
-  };
-
   // Handle sort order toggle
   const toggleSortOrder = () => {
     setAsc((prevAsc) => !prevAsc);
@@ -119,9 +113,7 @@ const Search: React.FC = () => {
         <SearchBarSection />
         <FilterSection
           asc={asc}
-          showFilter={showFilter}
           handleSort={toggleSortOrder}
-          toggleShowFilter={toggleShowFilter}
           selectedBreeds={selectedBreeds}
           setSelectedBreeds={setSelectedBreeds}
           ageRange={ageRange}
