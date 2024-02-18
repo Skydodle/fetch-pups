@@ -5,9 +5,9 @@ import DogCard from '../components/ResultsSection/DogCard';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 import { useLocation } from 'react-router-dom';
-import MatchButton from '../components/Buttons/MatchButton';
-import SearchButton from '../components/Buttons/SearchButton';
-import FavoritesButton from '../components/Buttons/FavoriteButton';
+import MatchButton from '../components/common/Buttons/MatchButton';
+import SearchButton from '../components/common/Buttons/SearchButton';
+import FavoritesButton from '../components/common/Buttons/FavoriteButton';
 import { FavoritesContext } from '../context/FavoritesContext';
 
 const Match: React.FC = () => {
