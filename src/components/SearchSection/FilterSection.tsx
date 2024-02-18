@@ -27,33 +27,18 @@ const FilterSection: React.FC<FilterProps> = ({
   return (
     <div className="p-4 mt-4 bg-white flex flex-col">
       <h1 className="text-primary text-base font-bold">Search By Filter</h1>
-      {/* <div className="grid grid-cols-2 gap-0 pb-2">
-        <div className="col-span-1 md:col-span-1 lg:col-span-1">
-          <button
-            onClick={toggleShowFilter}
-            className={`w-full py-1 px-2 rounded-l-md border border-custom-blue text-sm md:bg-custom-blue md:text-white
-            ${
-              showFilter
-                ? 'bg-custom-blue text-white'
-                : 'bg-white text-custom-blue'
-            }`}
-          >
-            <TuneIcon fontSize="small" /> FILTER
-          </button>
-        </div>
-        <div className="col-span-1 md:col-span-1 lg:col-span-1">
-          <button
-            onClick={handleSort}
-            className="w-full py-1 px-2 rounded-r-md border border-custom-blue text-custom-blue text-sm "
-          >
-            {asc ? (
-              <ArrowDownward fontSize="small" />
-            ) : (
-              <ArrowUpward fontSize="small" />
-            )}{' '}
-            SORT
-          </button>
-        </div>
+      {/* <div className="col-span-1 md:col-span-1 lg:col-span-1">
+        <button
+          onClick={handleSort}
+          className="w-full py-1 px-2 rounded-r-md border border-custom-blue text-custom-blue text-sm "
+        >
+          {asc ? (
+            <ArrowDownward fontSize="small" />
+          ) : (
+            <ArrowUpward fontSize="small" />
+          )}{' '}
+          SORT
+        </button>
       </div> */}
       <FilterContent
         selectedBreeds={selectedBreeds}

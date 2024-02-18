@@ -3,7 +3,7 @@ import { Button, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import CelebrationIcon from '@mui/icons-material/Celebration';
 import { useNavigate } from 'react-router-dom';
-import { FavoritesContext } from '../../context/FavoritesContext';
+import { FavoritesContext } from '../../../context/FavoritesContext';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   function Alert(props, ref) {

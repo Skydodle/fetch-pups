@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { FavoritesContext } from '../../context/FavoritesContext';
+import { FavoritesContext } from '../../../context/FavoritesContext';
 
 const SearchButton: React.FC = () => {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React from 'react';
-import FavoritesButton from '../Buttons/FavoriteButton';
-import ClearFavoritesButton from '../Buttons/ClearFavoritesButton';
-import MatchButton from '../Buttons/MatchButton';
-import SearchButton from '../Buttons/SearchButton';
+import FavoritesButton from '../common/Buttons/FavoriteButton';
+import ClearFavoritesButton from '../common/Buttons/ClearFavoritesButton';
+import MatchButton from '../common/Buttons/MatchButton';
+import SearchButton from '../common/Buttons/SearchButton';
 
 type ResultsToolbarProps = {
   favoritesCount: number;
