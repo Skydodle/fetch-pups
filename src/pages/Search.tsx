@@ -11,6 +11,7 @@ import FilterSection from '../components/SearchSection/FilterSection';
 import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
 import DogCardsSection from '../components/ResultsSection/DogCardsSection';
 import PaginationBar from '../components/PaginationBar';
+import Notification from '../components/common/Notification/Notification';
 
 const Search: React.FC = () => {
   const { favorites, showFavorite, setShowFavorite } =
@@ -135,18 +136,15 @@ const Search: React.FC = () => {
           totalResults={totalResults}
         />
         {error && <p>{error}</p>}
-
+        {noResultsNotification && (
+          <Notification message={noResultsNotification} type="error" />
+        )}
         {/* Dog Cards Section */}
         <DogCardsSection
           dogs={dogs}
           showFavorite={showFavorite}
           favorites={favorites}
         />
-        {noResultsNotification && (
-          <p className="text-center text-red-500 my-28">
-            {noResultsNotification}
-          </p>
-        )}
         {/*End Dog Cards Section*/}
         <PaginationBar
           totalResults={totalResults}
