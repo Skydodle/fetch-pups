@@ -32,6 +32,7 @@ const Search: React.FC = () => {
   const [ageMin, ageMax] = ageRange as [number, number];
   const [noResultsNotification, setNoResultsNotification] =
     useState<string>('');
+  const [zipSearchNoResults, setZipSearchNoResults] = useState(false);
 
   // Fetch dogs data from the API based on the current search criteria
   // useCallback hook memorizes the fetchData function. The function is only recreated if one of its dependencies changes
@@ -47,7 +48,13 @@ const Search: React.FC = () => {
         ageRange as number[],
         zipCodes,
       );
-      if (totalResults === 0) {
+      // Determine if the search is based on zip codes and if it yields no results
+      const isZipSearch = zipCodes.length > 0;
+      const noResults = totalResults === 0;
+
+      setZipSearchNoResults(isZipSearch && noResults);
+
+      if (isZipSearch && noResults) {
         setNoResultsNotification(
           'No dogs found for the entered zip code(s). Please try different zip codes.',
         );
@@ -136,7 +143,7 @@ const Search: React.FC = () => {
           totalResults={totalResults}
         />
         {error && <p>{error}</p>}
-        {noResultsNotification && (
+        {zipSearchNoResults && (
           <Notification message={noResultsNotification} type="error" />
         )}
         {/* Dog Cards Section */}
