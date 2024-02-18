@@ -112,8 +112,6 @@ const Search: React.FC = () => {
       >
         <SearchBarSection />
         <FilterSection
-          asc={asc}
-          handleSort={toggleSortOrder}
           selectedBreeds={selectedBreeds}
           setSelectedBreeds={setSelectedBreeds}
           ageRange={ageRange}
@@ -132,6 +130,8 @@ const Search: React.FC = () => {
           favoritesCount={favoritesCount}
           showFavorite={showFavorite}
           toggleShowFavorites={toggleShowFavorites}
+          handleSort={toggleSortOrder}
+          asc={asc}
           totalResults={totalResults}
         />
         {error && <p>{error}</p>}
