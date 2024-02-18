@@ -12,7 +12,7 @@ const Notification: React.FC<NotificationProps> = ({
 }) => {
   // Define a mapping from type to Tailwind CSS classes
   const typeStyles = {
-    error: 'text-center text-red-500 my-28',
+    error: 'text-center text-red-500 mt-28',
     info: 'text-center text-blue-500 my-28', // Example style for 'info'
     // Add more types as needed
   };
