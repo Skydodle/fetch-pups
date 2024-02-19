@@ -88,6 +88,10 @@ const Search: React.FC = () => {
     fetchData();
   }, [fetchData]);
 
+  useEffect(() => {
+    setPage(1); // Reset page to 1 whenever filters change
+  }, [selectedBreeds, ageRange, zipCodes, sortCriteria]);
+
   // Handle age range slider change
   const handleAgeRangeSlider = (event: any, newValue: number | number[]) => {
     setAgeRange(newValue as number[]);
