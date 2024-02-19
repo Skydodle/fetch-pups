@@ -21,7 +21,6 @@ const Search: React.FC = () => {
   const [dogs, setDogs] = useState<Dog[]>([]);
   const [page, setPage] = useState<number>(1);
   const [error, setError] = useState<string>('');
-  const [asc, setAsc] = useState<boolean>(true);
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
     'American Staffordshire Terrier',
     'Yorkshire Terrier',
@@ -32,6 +31,7 @@ const Search: React.FC = () => {
   const [noResultsNotification, setNoResultsNotification] =
     useState<string>('');
   const [zipSearchNoResults, setZipSearchNoResults] = useState(false);
+  const [sortCriteria, setSortCriteria] = useState('breed:asc');
 
   // Fetch dogs data from the API based on the current search criteria
   // useCallback hook memorizes the fetchData function. The function is only recreated if one of its dependencies changes
@@ -41,7 +41,7 @@ const Search: React.FC = () => {
       const { dogs, totalResults } = await fetchDogs(
         showFavorite,
         favorites,
-        asc,
+        sortCriteria,
         page,
         selectedBreeds,
         ageRange as number[],
@@ -76,7 +76,15 @@ const Search: React.FC = () => {
       }
       console.error('Error fetching data:', err);
     }
-  }, [showFavorite, favorites, asc, page, selectedBreeds, ageRange, zipCodes]);
+  }, [
+    showFavorite,
+    favorites,
+    sortCriteria,
+    page,
+    selectedBreeds,
+    ageRange,
+    zipCodes,
+  ]);
 
   useEffect(() => {
     fetchData();
@@ -87,9 +95,9 @@ const Search: React.FC = () => {
     setAgeRange(newValue as number[]);
   };
 
-  // Handle sort order toggle
-  const toggleSortOrder = () => {
-    setAsc((prevAsc) => !prevAsc);
+  // Handle sort drop-down selection
+  const handleSortChange = (value: string) => {
+    setSortCriteria(value);
   };
 
   // Toggle show/hide favorite dogs
@@ -130,8 +138,7 @@ const Search: React.FC = () => {
           favoritesCount={favoritesCount}
           showFavorite={showFavorite}
           toggleShowFavorites={toggleShowFavorites}
-          handleSort={toggleSortOrder}
-          asc={asc}
+          handleSortChange={handleSortChange}
           totalResults={totalResults}
         />
         {error && <p>{error}</p>}
