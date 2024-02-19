@@ -4,7 +4,7 @@ export const itemCount = (page: number) => {
     return 0;
   }
   if (page > 1) {
-    return page * 9;
+    return page * 9 - 9;
   }
 };
 
