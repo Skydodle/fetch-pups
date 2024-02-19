@@ -24,6 +24,7 @@ const Search: React.FC = () => {
   const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
     'American Staffordshire Terrier',
     'Yorkshire Terrier',
+    'Great Dane',
   ]);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
