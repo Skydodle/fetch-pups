@@ -40,9 +40,11 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
           <b>{totalResults}</b> Results
         </p>
       </div>
-      <div className="flex items-center">
-        <SortingDropDown handleSortChange={handleSortChange} />
-      </div>
+      {showFavorite ? null : (
+        <div className="flex items-center">
+          <SortingDropDown handleSortChange={handleSortChange} />
+        </div>
+      )}
     </div>
   );
 };
