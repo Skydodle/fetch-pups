@@ -52,6 +52,13 @@ export interface Location {
   county: string;
 }
 
+interface LocationSearchParams {
+  city?: string;
+  states?: string[];
+  size?: number;
+  from?: number;
+}
+
 // Hide this in env later
 const baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -164,6 +171,24 @@ const APIService = {
       return response;
     } catch (error) {
       console.log('Error fetching locations:', error);
+      throw error;
+    }
+  },
+
+  // New method for fetching locations by city or state
+  fetchLocationsByCityOrState: async (
+    params: LocationSearchParams,
+  ): Promise<AxiosResponse<Location[]>> => {
+    try {
+      const response = await apiInstance.post(`/locations/search`, params, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log('fetchLocationsByCityOrState status:', response.status);
+      return response;
+    } catch (error) {
+      console.log('Error fetching locations by city or state:', error);
       throw error;
     }
   },
