@@ -114,20 +114,22 @@ const Search: React.FC = () => {
       className="sm:w-full md:w-2/3 xl:w-3/4 mx-auto flex flex-col lg:flex-row justify-center"
     >
       {/* Search Section */}
-      <div
-        id="search-section"
-        className="sm:w-full md:w-full lg:w-1/4 px-4 sm:mt-10 lg:mt-28 py-4"
-      >
-        <SearchBarSection />
-        <FilterSection
-          selectedBreeds={selectedBreeds}
-          setSelectedBreeds={setSelectedBreeds}
-          ageRange={ageRange}
-          handleAgeRangeSlider={handleAgeRangeSlider}
-          ageMin={ageMin}
-          ageMax={ageMax}
-        />
-      </div>
+      {showFavorite ? null : (
+        <div
+          id="search-section"
+          className="sm:w-full md:w-full lg:w-1/4 px-4 sm:mt-10 lg:mt-28 py-4"
+        >
+          <SearchBarSection />
+          <FilterSection
+            selectedBreeds={selectedBreeds}
+            setSelectedBreeds={setSelectedBreeds}
+            ageRange={ageRange}
+            handleAgeRangeSlider={handleAgeRangeSlider}
+            ageMin={ageMin}
+            ageMax={ageMax}
+          />
+        </div>
+      )}
       {/* End Search Section */}
       {/* Results Section */}
       <div
