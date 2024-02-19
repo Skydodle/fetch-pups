@@ -11,7 +11,7 @@ interface SortingDropDownProps {
 const SortingDropDown: React.FC<SortingDropDownProps> = ({
   handleSortChange,
 }) => {
-  const [sort, setSort] = useState('breed:asc');
+  const [sort, setSort] = useState('breed:desc');
 
   const handleChange = (event: SelectChangeEvent) => {
     const value = event.target.value;
