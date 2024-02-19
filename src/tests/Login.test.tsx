@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import Login from '../pages/Login';
 import { BrowserRouter as Router } from 'react-router-dom';
-import APIService from '../services/api';
+import APIService from '../services/APIService';
 
 jest.mock('../services/api');
 
@@ -14,12 +14,12 @@ describe('Login', () => {
     render(
       <Router>
         <Login />
-      </Router>
+      </Router>,
     );
 
     expect(screen.getByRole('textbox', { name: /name/i })).toBeInTheDocument();
     expect(
-      screen.getByRole('textbox', { name: /email address/i })
+      screen.getByRole('textbox', { name: /email address/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
@@ -28,7 +28,7 @@ describe('Login', () => {
     render(
       <Router>
         <Login />
-      </Router>
+      </Router>,
     );
 
     const nameInput = screen.getByRole('textbox', {
@@ -48,7 +48,7 @@ describe('Login', () => {
     render(
       <Router>
         <Login />
-      </Router>
+      </Router>,
     );
 
     const emailInput = screen.getByRole('textbox', {
@@ -66,7 +66,7 @@ describe('Login', () => {
     render(
       <Router>
         <Login />
-      </Router>
+      </Router>,
     );
 
     const nameInput = screen.getByRole('textbox', {

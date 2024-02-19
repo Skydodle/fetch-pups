@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { isAxiosError } from 'axios';
-import { Dog } from '../services/api';
-import { fetchDogs } from '../services/dogApi';
+import { Dog } from '../services/APIService';
+import { fetchDogs } from '../services/dogService';
 
 import { FavoritesContext } from '../context/FavoritesContext';
 import { useZipCodes } from '../context/ZipCodesContext';
@@ -63,6 +63,7 @@ const Search: React.FC = () => {
       setDogs(dogs);
       setTotalResults(totalResults);
       console.log('Data fetched successfully!');
+      console.log('Fetched dogs with city and state:', dogs);
     } catch (err) {
       // Handle errors
       if (isAxiosError(err) && err.response?.status === 400) {

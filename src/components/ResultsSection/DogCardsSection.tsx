@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dog } from '../../services/api';
+import { Dog } from '../../services/APIService';
 import DogCard from './DogCard';
 import EmptyFavoritesAlert from './EmptyFavoritesAlert';
 

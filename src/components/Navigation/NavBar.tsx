@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pets, Logout } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import APIService from '../../services/api';
+import APIService from '../../services/APIService';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
