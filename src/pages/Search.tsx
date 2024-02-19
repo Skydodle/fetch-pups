@@ -21,18 +21,14 @@ const Search: React.FC = () => {
   const [dogs, setDogs] = useState<Dog[]>([]);
   const [page, setPage] = useState<number>(1);
   const [error, setError] = useState<string>('');
-  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([
-    'American Staffordshire Terrier',
-    'Yorkshire Terrier',
-    'Great Dane',
-  ]);
+  const [selectedBreeds, setSelectedBreeds] = useState<string[]>([]);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [ageRange, setAgeRange] = useState<number | number[]>([0, 20]);
   const [ageMin, ageMax] = ageRange as [number, number];
   const [noResultsNotification, setNoResultsNotification] =
     useState<string>('');
   const [zipSearchNoResults, setZipSearchNoResults] = useState(false);
-  const [sortCriteria, setSortCriteria] = useState('breed:asc');
+  const [sortCriteria, setSortCriteria] = useState('breed:desc');
 
   // Fetch dogs data from the API based on the current search criteria
   // useCallback hook memorizes the fetchData function. The function is only recreated if one of its dependencies changes
