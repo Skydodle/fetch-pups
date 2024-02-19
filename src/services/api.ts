@@ -8,6 +8,8 @@ export interface Dog {
   age: number;
   zip_code: string;
   breed: string;
+  city?: string;
+  state?: string;
 }
 
 // Define the LoginData interface
