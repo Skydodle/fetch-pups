@@ -5,11 +5,11 @@ import { itemCount } from '../utils/utils';
 export const fetchDogs = async (
   showFavorite: boolean,
   favorites: string[],
-  asc: boolean,
+  sortCriteria: string,
   page: number,
   selectedBreeds: string[] | null,
   ageRange: number[],
-  zipCodes: string[]
+  zipCodes: string[],
 ) => {
   let dogIds: string[] = [];
   let totalResults: number = 0;
@@ -24,7 +24,7 @@ export const fetchDogs = async (
       // Retrieve Dog Ids
       const responseIds = await APIService.getDogsIds({
         size: 9,
-        sort: `breed:${asc ? 'asc' : 'desc'}`,
+        sort: sortCriteria,
         from: itemCount(page),
         breeds: selectedBreeds ? selectedBreeds : null,
         ageMin: ageRange[0],
