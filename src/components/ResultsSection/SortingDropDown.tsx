@@ -35,12 +35,12 @@ const SortingDropDown: React.FC<SortingDropDownProps> = ({
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value="breedAsc">Breed Ascending</MenuItem>
-          <MenuItem value="breedDsc">Breed Descending</MenuItem>
-          <MenuItem value="nameAsc">Name Ascending</MenuItem>
-          <MenuItem value="nameDesc">Name Descending</MenuItem>
-          <MenuItem value="ageAsc">Age Ascending</MenuItem>
-          <MenuItem value="ageDesc">Age Descending</MenuItem>
+          <MenuItem value="breed:asc">Breed Ascending</MenuItem>
+          <MenuItem value="breed:desc">Breed Descending</MenuItem>
+          <MenuItem value="name:asc">Name Ascending</MenuItem>
+          <MenuItem value="name:desc">Name Descending</MenuItem>
+          <MenuItem value="age:asc">Age Ascending</MenuItem>
+          <MenuItem value="age:desc">Age Descending</MenuItem>
           {/* Add more sorting options as needed */}
         </Select>
       </FormControl>
