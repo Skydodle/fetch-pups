@@ -59,6 +59,11 @@ interface LocationSearchParams {
   from?: number;
 }
 
+interface LocationsSearchResponse {
+  results: Location[];
+  total: number;
+}
+
 // Hide this in env later
 const baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -178,7 +183,7 @@ const APIService = {
   // New method for fetching locations by city or state
   fetchLocationsByCityOrState: async (
     params: LocationSearchParams,
-  ): Promise<AxiosResponse<Location[]>> => {
+  ): Promise<AxiosResponse<LocationsSearchResponse>> => {
     try {
       const response = await apiInstance.post(`/locations/search`, params, {
         headers: {
