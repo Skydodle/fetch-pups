@@ -38,8 +38,9 @@ const DogCard: React.FC<DogCardProps> = ({ dog }) => {
         <p className=" text-base ">{dog.breed}</p>
         <p className=" text-base ">{dog.age} years old</p>
         <p className=" text-base ">
-          <span className="font-light">Zip Code:</span>{' '}
-          <span>{dog.zip_code}</span>
+          <span>
+            {dog.city}, {dog.state} {dog.zip_code}
+          </span>
         </p>
       </div>
       <div id="dog-card-action" className="flex justify-start px-4 pt-2 pb-4">
