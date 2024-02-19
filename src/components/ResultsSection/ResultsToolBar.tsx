@@ -3,7 +3,6 @@ import FavoritesButton from '../common/Buttons/FavoriteButton';
 import ClearFavoritesButton from '../common/Buttons/ClearFavoritesButton';
 import MatchButton from '../common/Buttons/MatchButton';
 import SearchButton from '../common/Buttons/SearchButton';
-import { ArrowDownward, ArrowUpward } from '@mui/icons-material';
 import SortingDropDown from './SortingDropDown';
 
 type ResultsToolbarProps = {
