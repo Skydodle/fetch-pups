@@ -40,6 +40,16 @@ interface Match {
   match: string;
 }
 
+// Define the location interface
+interface Location {
+  zip_code: string;
+  latitude: number;
+  longitude: number;
+  city: string;
+  state: string;
+  county: string;
+}
+
 // Hide this in env later
 const baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -135,6 +145,23 @@ const APIService = {
       return response;
     } catch (error) {
       console.log(error);
+      throw error;
+    }
+  },
+
+  fetchLocations: async (
+    zipCodes: string[],
+  ): Promise<AxiosResponse<Location[]>> => {
+    try {
+      const response = await apiInstance.post(`/locations`, zipCodes, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log('fetchLocations status:', response.status);
+      return response;
+    } catch (error) {
+      console.log('Error fetching locations:', error);
       throw error;
     }
   },
