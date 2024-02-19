@@ -6,8 +6,8 @@ import { fetchDogs } from '../services/dogApi';
 import { FavoritesContext } from '../context/FavoritesContext';
 import { useZipCodes } from '../context/ZipCodesContext';
 
-import SearchBarSection from '../components/SearchSection/SearchBarSection';
-import FilterSection from '../components/SearchSection/FilterSection';
+import LocationSection from '../components/SearchSection/LocationSection/LocationSection';
+import FilterSection from '../components/SearchSection/FilterSection/FilterSection';
 import ResultsToolbar from '../components/ResultsSection/ResultsToolBar';
 import DogCardsSection from '../components/ResultsSection/DogCardsSection';
 import PaginationBar from '../components/PaginationBar';
@@ -119,7 +119,7 @@ const Search: React.FC = () => {
           id="search-section"
           className="sm:w-full md:w-full lg:w-1/4 px-4 sm:mt-10 lg:mt-28 py-4"
         >
-          <SearchBarSection />
+          <LocationSection />
           <FilterSection
             selectedBreeds={selectedBreeds}
             setSelectedBreeds={setSelectedBreeds}
