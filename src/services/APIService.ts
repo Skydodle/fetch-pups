@@ -172,7 +172,7 @@ const APIService = {
           'Content-Type': 'application/json',
         },
       });
-      console.log('fetchLocations status:', response.status);
+      // console.log('fetchLocations status:', response.status);
       return response;
     } catch (error) {
       console.log('Error fetching locations:', error);
@@ -190,7 +190,7 @@ const APIService = {
           'Content-Type': 'application/json',
         },
       });
-      console.log('fetchLocationsByCityOrState status:', response.status);
+      // console.log('fetchLocationsByCityOrState status:', response.status);
       return response;
     } catch (error) {
       console.log('Error fetching locations by city or state:', error);
