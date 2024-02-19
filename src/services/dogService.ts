@@ -1,5 +1,5 @@
 import APIService, { Dog } from './APIService';
-import { itemCount } from '../utils/utils';
+import { extractUniqueZipCodes, itemCount } from '../utils/utils';
 import {
   fetchLocations,
   createZipCodeToLocationMap,
@@ -44,7 +44,7 @@ export const fetchDogs = async (
     dogs = response.data;
 
     // Extract zips from dogs & fetch location data then enrich dogs with location
-    const uniqueZipCodes = [...new Set(dogs.map((dog) => dog.zip_code))];
+    const uniqueZipCodes = extractUniqueZipCodes(dogs);
     const locations = await fetchLocations(uniqueZipCodes);
     const locationMap = createZipCodeToLocationMap(locations);
     dogs = enrichDogsWithLocation(dogs, locationMap);
