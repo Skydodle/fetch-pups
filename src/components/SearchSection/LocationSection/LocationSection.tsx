@@ -9,9 +9,6 @@ const LocationSection: React.FC = () => {
   const { zipCodes, setZipCodes, removeZipCode } = useZipCodes();
   const [zipCodeSearch, setZipCodeSearch] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
-  const [cityToZipMapping, setCityToZipMapping] = useState<
-    Record<string, string[]>
-  >({});
   const [value, setValue] = useState(0);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -56,52 +53,17 @@ const LocationSection: React.FC = () => {
         (location) => location.city?.toLowerCase() === city.toLowerCase(),
       );
       const newZipCodes = extractUniqueZipCodes(filteredLocations);
+      setZipCodes(newZipCodes);
 
-      // Merge new zip codes with existing ones, removing duplicates
-      const mergedZipCodes = Array.from(new Set([...zipCodes, ...newZipCodes]));
-
-      // Update zipCodes context with merged zip codes
-      setZipCodes(mergedZipCodes);
-
-      // Update city to zip code mapping
-      setCityToZipMapping((prevMapping) => {
-        const cityKey = city.toLowerCase();
-        // Assuming newZipCodes are the zip codes derived from the city search
-        const updatedZipCodes = [
-          ...(prevMapping[cityKey] || []),
-          ...newZipCodes,
-        ];
-        return { ...prevMapping, [cityKey]: updatedZipCodes };
-      });
-
-      if (!cities.includes(city)) {
-        setCities([...cities, city]);
-      }
+      setCities([city]);
     } catch (error) {
       console.error('Error fetching locations:', error);
     }
   };
 
   const handleRemoveCity = (cityToRemove: string) => {
-    const cityKey = cityToRemove.toLowerCase();
-    const zipCodesToRemove = cityToZipMapping[cityKey] || [];
-
-    // Remove these zip codes from the zipCodes context
-    setZipCodes((currentZipCodes) =>
-      currentZipCodes.filter((zipCode) => !zipCodesToRemove.includes(zipCode)),
-    );
-
-    // Remove the city from the cities state
-    setCities((currentCities) =>
-      currentCities.filter((city) => city.toLowerCase() !== cityKey),
-    );
-
-    // Update the mapping to remove the city entry
-    setCityToZipMapping((currentMapping) => {
-      const newMapping = { ...currentMapping };
-      delete newMapping[cityKey];
-      return newMapping;
-    });
+    setCities([]);
+    setZipCodes([]);
   };
 
   return (
@@ -117,7 +79,7 @@ const LocationSection: React.FC = () => {
       </Tabs>
       {/* Conditional rendering based on the selected tab */}
       {value === 0 && (
-        <div className="mt-4">
+        <div className="my-6">
           <SearchByCriteria
             placeholder="Enter zip code(s)..."
             validateInput={(input) => /^\d{5}$/.test(input)}
@@ -129,7 +91,7 @@ const LocationSection: React.FC = () => {
         </div>
       )}
       {value === 1 && (
-        <div className="mt-4">
+        <div className="my-6">
           <SearchByCriteria
             placeholder="Enter city..."
             onSearch={handleCitySearch}
