@@ -3,6 +3,7 @@ import { useZipCodes } from '../../../context/ZipCodesContext';
 import APIService from '../../../services/APIService';
 import { extractUniqueZipCodes } from '../../../utils/utils';
 import SearchByCriteria from './SearchByCriteria';
+import { Tab, Tabs } from '@mui/material';
 
 const LocationSection: React.FC = () => {
   const { zipCodes, setZipCodes, removeZipCode } = useZipCodes();
@@ -11,6 +12,25 @@ const LocationSection: React.FC = () => {
   const [cityToZipMapping, setCityToZipMapping] = useState<
     Record<string, string[]>
   >({});
+  const [value, setValue] = useState(0);
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    // If moving away from the Zip Code tab
+    if (value === 0) {
+      // Clear zip code search criteria and associated zip codes
+      setZipCodeSearch([]);
+      setZipCodes([]);
+    }
+    // If moving away from the City tab
+    else if (value === 1) {
+      // Clear city search criteria and associated zip codes
+      setCities([]);
+      setZipCodes([]);
+      // Optionally, clear any city-specific state, if applicable
+    }
+    // Update the active tab value
+    setValue(newValue);
+  };
 
   const handleZipCodeSearch = (zipCode: string) => {
     setZipCodes([...zipCodes, zipCode]);
@@ -37,8 +57,11 @@ const LocationSection: React.FC = () => {
       );
       const newZipCodes = extractUniqueZipCodes(filteredLocations);
 
-      // Update zipCodes context
-      setZipCodes(newZipCodes);
+      // Merge new zip codes with existing ones, removing duplicates
+      const mergedZipCodes = Array.from(new Set([...zipCodes, ...newZipCodes]));
+
+      // Update zipCodes context with merged zip codes
+      setZipCodes(mergedZipCodes);
 
       // Update city to zip code mapping
       setCityToZipMapping((prevMapping) => {
@@ -82,43 +105,46 @@ const LocationSection: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="p-4  bg-white flex flex-col">
-        <h2 id="filter-title" className="text-primary font-semibold mb-4">
-          Search By Location
-        </h2>
-        <div className="grid grid-cols-1 gap-4">
-          <div>
-            <h4 className="text-sm mb-3 text-custom-blue">Zip Code:</h4>
-            {/* SearchByZipCode */}
-            <SearchByCriteria
-              placeholder="Enter zip code(s)..."
-              validateInput={(input) => /^\d{5}$/.test(input)}
-              errorMessage="Please enter a valid 5-digit zip code"
-              onSearch={handleZipCodeSearch}
-              criteriaArray={zipCodeSearch}
-              onRemoveCriteria={handleRemoveZipCode}
-            />
-          </div>
-          <div>
-            <h4 className="text-sm mb-3 text-custom-blue">City:</h4>
-            {/* SearchByCity */}
-            <SearchByCriteria
-              placeholder="Enter city..."
-              onSearch={handleCitySearch}
-              validateInput={(input) => /^[a-zA-Z\s]+$/.test(input)}
-              errorMessage="Please enter a valid city name"
-              criteriaArray={cities}
-              onRemoveCriteria={handleRemoveCity}
-            />
-          </div>
-          <div>
-            <h4 className="text-sm mb-3 text-custom-blue">State:</h4>
-            {/* component here */}
-          </div>
+    <div className="p-4  bg-white flex flex-col">
+      <h2 id="filter-title" className="text-primary font-semibold mb-4">
+        Search By Location
+      </h2>
+      {/* Tabs for selecting search criteria */}
+      <Tabs value={value} onChange={handleTabChange} aria-label="search tabs">
+        <Tab label="Zip Code" />
+        <Tab label="City" />
+        {/* Add more tabs as needed */}
+      </Tabs>
+      {/* Conditional rendering based on the selected tab */}
+      {value === 0 && (
+        <div className="mt-4">
+          <SearchByCriteria
+            placeholder="Enter zip code(s)..."
+            validateInput={(input) => /^\d{5}$/.test(input)}
+            errorMessage="Please enter a valid 5-digit zip code"
+            onSearch={handleZipCodeSearch}
+            criteriaArray={zipCodeSearch}
+            onRemoveCriteria={handleRemoveZipCode}
+          />
         </div>
-      </div>
-    </>
+      )}
+      {value === 1 && (
+        <div className="mt-4">
+          <SearchByCriteria
+            placeholder="Enter city..."
+            onSearch={handleCitySearch}
+            validateInput={(input) => /^[a-zA-Z\s]+$/.test(input)}
+            errorMessage="Please enter a valid city name"
+            criteriaArray={cities}
+            onRemoveCriteria={handleRemoveCity}
+          />
+        </div>
+      )}
+      {/* <div>
+            <h4 className="text-sm mb-3 text-custom-blue">State:</h4>
+            search by state component here
+          </div> */}
+    </div>
   );
 };
 
