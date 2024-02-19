@@ -35,6 +35,8 @@ const SortingDropDown: React.FC<SortingDropDownProps> = ({
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
+          <MenuItem value="breedAsc">Breed Ascending</MenuItem>
+          <MenuItem value="breedDsc">Breed Descending</MenuItem>
           <MenuItem value="nameAsc">Name Ascending</MenuItem>
           <MenuItem value="nameDesc">Name Descending</MenuItem>
           <MenuItem value="ageAsc">Age Ascending</MenuItem>
