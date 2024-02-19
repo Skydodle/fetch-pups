@@ -1,5 +1,10 @@
-import APIService, { Dog } from './api';
+import APIService, { Dog } from './APIService';
 import { itemCount } from '../utils/utils';
+import {
+  fetchLocations,
+  createZipCodeToLocationMap,
+  enrichDogsWithLocation,
+} from './locationService';
 
 // Fetch dogs data from the API based on the current search criteria
 export const fetchDogs = async (
@@ -37,6 +42,12 @@ export const fetchDogs = async (
     // Retrieve Dog objects
     const response = await APIService.getDogs(dogIds);
     dogs = response.data;
+
+    // Extract zips from dogs & fetch location data then enrich dogs with location
+    const uniqueZipCodes = [...new Set(dogs.map((dog) => dog.zip_code))];
+    const locations = await fetchLocations(uniqueZipCodes);
+    const locationMap = createZipCodeToLocationMap(locations);
+    dogs = enrichDogsWithLocation(dogs, locationMap);
   } catch (err) {
     throw err; // throw the error back to the component to handle
   }
