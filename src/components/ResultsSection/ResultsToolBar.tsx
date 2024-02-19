@@ -4,6 +4,7 @@ import ClearFavoritesButton from '../common/Buttons/ClearFavoritesButton';
 import MatchButton from '../common/Buttons/MatchButton';
 import SearchButton from '../common/Buttons/SearchButton';
 import { ArrowDownward, ArrowUpward } from '@mui/icons-material';
+import SortingDropDown from './SortingDropDown';
 
 type ResultsToolbarProps = {
   favoritesCount: number;
@@ -27,36 +28,26 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
       id="results-tool-bar"
       className="flex justify-between md:w-3/4 px-2 my-2 mx-auto"
     >
-      <div className=" pl-2">
-        <div className="flex flex-wrap">
-          <FavoritesButton
-            favoritesCount={favoritesCount}
-            showFavorite={showFavorite}
-            toggleShowFavorite={toggleShowFavorites}
-          />
-          {showFavorite ? <ClearFavoritesButton /> : null}
-          <MatchButton />
-          {showFavorite ? <SearchButton /> : null}
-        </div>
+      <div className="flex flex-wrap items-center">
+        <FavoritesButton
+          favoritesCount={favoritesCount}
+          showFavorite={showFavorite}
+          toggleShowFavorite={toggleShowFavorites}
+        />
+        {showFavorite ? <ClearFavoritesButton /> : null}
+        <MatchButton />
+        {showFavorite ? <SearchButton /> : null}
       </div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center">
         <p className="text-custom-blue font-semibold pr-2">
           <b>{totalResults}</b> Results
         </p>
       </div>
-      <div className="flex items-center justify-end">
-        <button
-          onClick={handleSort}
-          className="w-full py-1 px-2 rounded border border-custom-blue text-custom-blue text-sm "
-        >
-          {asc ? (
-            <ArrowDownward fontSize="small" />
-          ) : (
-            <ArrowUpward fontSize="small" />
-          )}{' '}
-          SORT
-        </button>
+      {/* <div> */}
+      <div className="flex items-center">
+        <SortingDropDown handleSortChange={() => {}} />
       </div>
+      {/* </div> */}
     </div>
   );
 };
