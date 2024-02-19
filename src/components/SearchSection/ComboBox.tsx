@@ -15,12 +15,16 @@ const ComboBox: React.FC<ComboBoxProps> = ({
   return (
     <Autocomplete
       disablePortal
-      size='small'
-      id='combo-box'
+      size="small"
+      id="combo-box"
       multiple
       options={allBreeds}
       renderInput={(params) => (
-        <TextField {...params} label='Filter by breeds' />
+        <TextField
+          {...params}
+          helperText="Enter breed or select from drop-down"
+          label="Filter by breeds"
+        />
       )}
       onChange={(event: any, newValues: string[] | null) => {
         if (newValues) {
