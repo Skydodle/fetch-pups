@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { useZipCodes } from '../../context/ZipCodesContext';
+import { useZipCodes } from '../../../context/ZipCodesContext';
 
-const SearchBar: React.FC = () => {
+const SearchByZipCode: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
   const { zipCodes, setZipCodes, removeZipCode } = useZipCodes();
@@ -74,4 +74,4 @@ const SearchBar: React.FC = () => {
   );
 };
 
-export default SearchBar;
+export default SearchByZipCode;
