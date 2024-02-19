@@ -9,8 +9,7 @@ type ResultsToolbarProps = {
   favoritesCount: number;
   showFavorite: boolean;
   toggleShowFavorites: () => void;
-  handleSort: () => void;
-  asc: boolean;
+  handleSortChange: (value: string) => void;
   totalResults: number;
 };
 
@@ -19,8 +18,7 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
   showFavorite,
   toggleShowFavorites,
   totalResults,
-  handleSort,
-  asc,
+  handleSortChange,
 }) => {
   return (
     <div
@@ -42,11 +40,9 @@ const ResultsToolbar: React.FC<ResultsToolbarProps> = ({
           <b>{totalResults}</b> Results
         </p>
       </div>
-      {/* <div> */}
       <div className="flex items-center">
-        <SortingDropDown handleSortChange={() => {}} />
+        <SortingDropDown handleSortChange={handleSortChange} />
       </div>
-      {/* </div> */}
     </div>
   );
 };
