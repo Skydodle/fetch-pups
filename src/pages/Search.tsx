@@ -36,7 +36,7 @@ const Search: React.FC = () => {
   // Fetch dogs data from the API based on the current search criteria
   // useCallback hook memorizes the fetchData function. The function is only recreated if one of its dependencies changes
   const fetchData = useCallback(async () => {
-    console.log('Fetching data...');
+    // console.log('Fetching data...');
     try {
       const { dogs, totalResults } = await fetchDogs(
         showFavorite,
@@ -62,8 +62,8 @@ const Search: React.FC = () => {
       }
       setDogs(dogs);
       setTotalResults(totalResults);
-      console.log('Data fetched successfully!');
-      console.log('Fetched dogs with city and state:', dogs);
+      // console.log('Data fetched successfully!');
+      // console.log('Fetched dogs with city and state:', dogs);
     } catch (err) {
       // Handle errors
       if (isAxiosError(err) && err.response?.status === 400) {
