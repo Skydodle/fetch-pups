@@ -56,7 +56,7 @@ const Search: React.FC = () => {
 
       if (isZipSearch && noResults) {
         setNoResultsNotification(
-          'No dogs found for the entered zip code(s). Please try different zip codes.',
+          'No dogs found for the entered zip code(s). Please try different zip codes or adjust the filters',
         );
       } else {
         setNoResultsNotification(''); // Clear notification if results exist
