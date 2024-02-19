@@ -1,4 +1,3 @@
-import React from 'react';
 import SearchByZipCode from './SearchByZipCode';
 
 const LocationSection: React.FC = () => {
@@ -8,10 +7,18 @@ const LocationSection: React.FC = () => {
         <h2 id="filter-title" className="text-primary font-semibold mb-4">
           Search By Location
         </h2>
-        <div className="grid grid-cols-1">
-          <div className="col-span-1">
-            <p className="text-sm mb-3 text-custom-blue">Zip Code:</p>
+        <div className="grid grid-cols-1 gap-4">
+          <div>
+            <h4 className="text-sm mb-3 text-custom-blue">Zip Code:</h4>
             <SearchByZipCode />
+          </div>
+          <div>
+            <h4 className="text-sm mb-3 text-custom-blue">City:</h4>
+            {/* component here */}
+          </div>
+          <div>
+            <h4 className="text-sm mb-3 text-custom-blue">State:</h4>
+            {/* component here */}
           </div>
         </div>
       </div>
