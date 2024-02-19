@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, useCallback } from 'react';
-import APIService from '../services/api';
-import { Dog } from '../services/api';
+import APIService from '../services/APIService';
+import { Dog } from '../services/APIService';
 import DogCard from '../components/ResultsSection/DogCard';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';

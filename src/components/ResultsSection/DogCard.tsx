@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Dog } from '../../services/api';
+import { Dog } from '../../services/APIService';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Favorite } from '@mui/icons-material';
 import { FavoritesContext } from '../../context/FavoritesContext';

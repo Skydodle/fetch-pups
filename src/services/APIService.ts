@@ -43,7 +43,7 @@ interface Match {
 }
 
 // Define the location interface
-interface Location {
+export interface Location {
   zip_code: string;
   latitude: number;
   longitude: number;

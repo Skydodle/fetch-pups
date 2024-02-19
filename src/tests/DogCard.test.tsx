@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import DogCard from '../components/ResultsSection/DogCard';
 import { FavoritesContext } from '../context/FavoritesContext';
-import { Dog } from '../services/api';
+import { Dog } from '../services/APIService';
 
 const dogMock: Dog = {
   id: '100',
@@ -27,16 +27,16 @@ describe('DogCard', () => {
         }}
       >
         <DogCard dog={dogMock} />
-      </FavoritesContext.Provider>
+      </FavoritesContext.Provider>,
     );
 
     expect(screen.getByText(dogMock.name)).toBeInTheDocument();
     expect(screen.getByText(`Breed: ${dogMock.breed}`)).toBeInTheDocument();
     expect(
-      screen.getByText(`Age: ${dogMock.age} years old`)
+      screen.getByText(`Age: ${dogMock.age} years old`),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(`Location: ${dogMock.zip_code}`)
+      screen.getByText(`Location: ${dogMock.zip_code}`),
     ).toBeInTheDocument();
     expect(screen.getByRole('img')).toHaveAttribute('src', dogMock.img);
   });
@@ -59,7 +59,7 @@ describe('DogCard', () => {
         }}
       >
         <DogCard dog={dogMock} />
-      </FavoritesContext.Provider>
+      </FavoritesContext.Provider>,
     );
 
     const favoriteButton = screen.getByLabelText('remove from favorites');
@@ -90,7 +90,7 @@ describe('DogCard', () => {
         }}
       >
         <DogCard dog={dogMock} />
-      </FavoritesContext.Provider>
+      </FavoritesContext.Provider>,
     );
 
     const favoriteButton = screen.getByLabelText('add to favorites');
@@ -117,7 +117,7 @@ describe('DogCard', () => {
         }}
       >
         <DogCard dog={dogMock} />
-      </FavoritesContext.Provider>
+      </FavoritesContext.Provider>,
     );
 
     expect(screen.getByLabelText('add to favorites')).toBeInTheDocument();
@@ -132,7 +132,7 @@ describe('DogCard', () => {
         }}
       >
         <DogCard dog={dogMock} />
-      </FavoritesContext.Provider>
+      </FavoritesContext.Provider>,
     );
 
     expect(screen.getByLabelText('remove from favorites')).toBeInTheDocument();
